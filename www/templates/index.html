@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="/static/images/favicon.png" sizes="32x32" type="image/png">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet"
+              href="/static/bootstrap/css/bootstrap.min.css"
+              type="text/css"
+              media='all'>
+        <link rel="stylesheet"
+              href="/static/fontawesome/css/fontawesome-all.min.css"
+              type="text/css"
+              media='all'>
+        <link rel="stylesheet"
+              href="/static/jquery-confirm/jquery-confirm.min.css"
+              type="text/css"
+              media='all'>
+
+        <!-- Custom styles for this template -->
+        <link href="/static/styles/dashboard.css" rel="stylesheet">
+
+        <title id="index_title">Janus ESS</title>
+    </head>
+    <body>
+
+        {% include 'navigation/navbar.html' %}
+
+        {% include 'lanes.html' %}
+
+        {% include 'status.html' %}
+
+        {% include 'settings.html' %}
+
+        {% include 'profiles.html' %}
+
+        {% include 'help.html' %}
+
+        {% include 'search.html' %}
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="/static/jquery/jquery-3.2.1.js"></script>
+        <script src="/static/jquery-confirm/jquery-confirm.min.js"></script>
+        <script src="/static/popper/popper.min.js"></script>
+        <script src="/static/moment/moment-with-locales.min.js"></script>
+        <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/static/js/elements.js"></script>
+        <script src="/static/js/utilities.js"></script>
+        <script src="/static/js/navigation/navbar.js"></script>
+        <script src="/static/js/navigation/sidebar_lanes.js"></script>
+        <script src="/static/js/settings.js"></script>
+        <script src="/static/js/navigation/sidebar_settings.js"></script>
+        <script src="/static/js/lanes/poll.js"></script>
+        <script src="/static/js/lanes/modules.js"></script>
+        <script src="/static/js/lanes/sensor.js"></script>
+
+        <script src="/static/js/setup.js"></script>
+        <script>setup();</script>
+
+        <script src="/static/js/heartbeat.js"></script>
+    </body>
+</html>

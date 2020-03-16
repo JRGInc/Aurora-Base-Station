@@ -1,0 +1,205 @@
+<div id="index_status"
+     class="container-fluid row index_document">
+
+    <main role="main"
+          class="col-12">
+
+        <div class="row px-3 mb-2">
+            <section id="status_base_network"
+                     class="alert alert-secondary text-left"
+                     role="alert">
+                Awaiting status...
+            </section>
+        </div>
+
+        <div class="row pl-3">
+            <section class="col-xl-6">
+
+                <div class="row mb-3">
+                    <h3 class="col-12 mx-3 text-center">
+                        Process Statuses
+                    </h3>
+                    <div class="col-sm-6">
+                        <table class="row table table-sm">
+                            <thead>
+                            </thead>
+                            <tbody class="col-12">
+                                <tr class="row">
+                                    <td class="col-6 table-dark text-right">
+                                        Logging service:
+                                    </td>
+                                    <td id="status_base_logging"
+                                        class="col-6 table-secondary">
+                                        Awaiting status...
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-6 table-dark text-right">
+                                        Email service:
+                                    </td>
+                                    <td id="status_base_email"
+                                        class="col-6 table-secondary">
+                                        Awaiting status...
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-6 table-dark text-right">
+                                        Task scheduler:
+                                    </td>
+                                    <td id="status_base_tasks"
+                                        class="col-6 table-secondary">
+                                        Awaiting status...
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-6 table-dark text-right">
+                                        MariaDB database:
+                                    </td>
+                                    <td id="status_base_mariadb"
+                                        class="col-6 table-secondary">
+                                        Awaiting status...
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-6 table-dark text-right">
+                                        InfluxDB database:
+                                    </td>
+                                    <td id="status_base_influxdb"
+                                        class="col-6 table-secondary">
+                                        Awaiting status...
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-6 table-dark text-right">
+                                        File operations:
+                                    </td>
+                                    <td id="status_base_file"
+                                        class="col-6 table-secondary">
+                                        Awaiting status...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <table class="row table table-sm">
+                            <thead>
+                            </thead>
+                            <tbody class="col-12">
+                                <tr class="row">
+                                    <td class="col-6 table-dark text-right">
+                                        Command listener:
+                                    </td>
+                                    <td id="status_base_command_listener"
+                                        class="col-6 table-secondary">
+                                        Awaiting status...
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-6 table-dark text-right">
+                                        Interface platform:
+                                    </td>
+                                    <td id="status_base_interface"
+                                        class="col-6 table-secondary">
+                                        Awaiting status...
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-6 table-dark text-right">
+                                        Poll dispatcher:
+                                    </td>
+                                    <td id="status_base_poll_dispatch"
+                                        class="col-6 table-secondary">
+                                        Awaiting status...
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-6 table-dark text-right">
+                                        Poll data collection:
+                                    </td>
+                                    <td id="status_base_poll_data"
+                                        class="col-6 table-secondary">
+                                        Awaiting status...
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-6 table-dark text-right">
+                                        SNMP agent:
+                                    </td>
+                                    <td id="status_base_snmp_agent"
+                                        class="col-6 table-secondary">
+                                        Awaiting status...
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-6 table-dark text-right">
+                                        SNMP notification:
+                                    </td>
+                                    <td id="status_base_snmp_notify"
+                                        class="col-6 table-secondary">
+                                        Awaiting status...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <h3 class="col-12 text-center">
+                        Lane Information
+                    </h3>
+                    <div class="col-12">
+                        <table class="row table table-sm">
+                            <tbody class="col-12">
+                                {% for lane in range(0, 4) %}
+                                <tr class="row">
+                                    <td class="col-3 table-dark text-right">
+                                        Lane {{ lane }} Status:
+                                    </td>
+                                    <td id="status_base_lane{{ lane }}_status"
+                                        class="col-9 table-secondary">
+                                        Awaiting status...
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                        <table class="row table table-sm">
+                            <tbody class="col-12">
+                                {% for lane in range(0, 4) %}
+                                <tr class="row">
+                                    <td class="col-3 table-dark text-right">
+                                        Lane {{ lane }} Polling:
+                                    </td>
+                                    <td id="status_base_lane{{ lane }}_polling"
+                                        class="col-9 table-secondary">
+                                        Awaiting status...
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="col-xl-6">
+
+                <div class="row">
+                    <h3 class="col-12 text-center">
+                        Status Messages
+                    </h3>
+                    <div id="status_base_activity_receive"
+                         class="col-12">
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+</div>

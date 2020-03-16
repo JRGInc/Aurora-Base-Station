@@ -1,0 +1,179 @@
+        <!--document/body/header elements-->
+        <header class="container-fluid row mb-3">
+
+            <!--Navigation Bar elements-->
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+
+                <!--Navigation Bar title-->
+                <div id="navbar_title"
+                     class="navbar-brand">
+                    <b>Janus ESS</b>
+                </div>
+
+                <!--Collapse menu for small screens-->
+                <button type="button"
+                        class="navbar-toggler d-lg-none mr-auto mb-1"
+                        data-toggle="collapse"
+                        data-target="#navbar_main"
+                        aria-controls="navbar_main"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!--Navigation Bar elements-->
+                <div id="navbar_main"
+                     class="navbar-collapse collapse">
+                    <ul class="navbar-nav mr-auto">
+
+                        <!--Lanes element-->
+                        <li id="li_navbar_lanes"
+                            class="nav-item btn btn-sm btn-outline-primary col-9 col-sm-7 col-md-5 col-lg mr-2 mb-1 li_navbar">
+                            <a class="btn btn-sm col text-white"
+                               onclick="a_clk_navbar_toggle('lanes');"
+                               href="javascript:void(0);">
+                                <b>Lanes</b>
+                                <span class="sr-only">
+                                    (current)
+                                </span>
+                            </a>
+                        </li>
+
+                        <!--Status element-->
+                        <li id="li_navbar_status"
+                            class="nav-item btn btn-sm btn-outline-primary col-9 col-sm-7 col-md-5 col-lg mr-2 mb-1 li_navbar">
+                            <a class="btn btn-sm col text-white"
+                               onclick="a_clk_navbar_toggle('status');"
+                               href="javascript:void(0);">
+                                <b>Status</b>
+                                <span class="sr-only">
+                                    (current)
+                                </span>
+                            </a>
+                        </li>
+
+                        <!--Settings element-->
+                        <li id="li_navbar_settings"
+                            class="nav-item btn btn-sm btn-outline-primary col-9 col-sm-7 col-md-5 col-lg mr-2 mb-1 li_navbar">
+                            <a class="btn btn-sm col text-white"
+                               onclick="a_clk_navbar_toggle('settings');"
+                               href="javascript:void(0);">
+                                <b>Settings</b>
+                                <span class="sr-only">
+                                    (current)
+                                </span>
+                            </a>
+                        </li>
+
+                        <!--Profile element-->
+                        <li id="li_navbar_profiles"
+                            class="nav-item btn btn-sm btn-outline-primary col-9 col-sm-7 col-md-5 col-lg mr-2 mb-1 li_navbar">
+                            <a class="btn btn-sm col text-white"
+                               onclick="a_clk_navbar_toggle('profiles');"
+                               href="javascript:void(0);">
+                                <b>Profiles</b>
+                                <span class="sr-only">
+                                    (current)
+                                </span>
+                            </a>
+                        </li>
+
+                        <!--Help element-->
+                        <li id="li_navbar_help"
+                            class="nav-item btn btn-sm btn-outline-primary col-9 col-sm-7 col-md-5 col-lg mr-2 mb-1 li_navbar">
+                            <a class="btn btn-sm col text-white"
+                               onclick="a_clk_navbar_toggle('help');"
+                               href="javascript:void(0);">
+                                <b>Help</b>
+                                <span class="sr-only">
+                                    (current)
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="form-inline">
+
+                        <!--Search element-->
+                        <div id="li_navbar_search"
+                             class="nav-item btn btn-sm btn-outline-primary col-9 col-sm-7 col-md-5 col-lg mr-2 mb-1 li_navbar">
+
+                            <div class="input-group input-group-sm">
+                                <input type="text"
+                                       id="txt_navbar_search"
+                                       class="col"
+                                       aria-label="Search"
+                                       placeholder="Search Term(s)">
+                                <div class="input-group-append">
+                                    <a class="btn btn-sm col text-white"
+                                       onclick="a_clk_navbar_toggle('search');">
+                                        <i class="pr-2 fas fa-search"></i>
+                                        <span class="d-none d-xl-inline">
+                                            <b>Search</b>
+                                        </span>
+                                        <span class="sr-only">
+                                            Search
+                                        </span>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Shutdown elements-->
+                <div class="form-inline ml-auto">
+                    <a class="nav-item btn btn-sm btn-success text-danger mr-2 mb-1"
+                       onmousedown="event.preventDefault();"
+                       href="/secure/janusess.crt"
+                       target="janusess.crt">
+                        <i class="fas fa-address-book"></i>
+                        <span class="d-none d-md-inline d-lg-none d-xl-inline pl-2">
+                            <b>Janus ESS Root Cert</b>
+                        </span>
+                        <span class="sr-only">
+                            Janus ESS Root Cert
+                        </span>
+                    </a>
+
+                    <a class="nav-item btn btn-sm btn-success text-danger mr-2 mb-1"
+                       onmousedown="event.preventDefault();"
+                       href="/secure/janusess.cer"
+                       target="janusess.crt">
+                        <i class="fas fa-address-card"></i>
+                        <span class="d-none d-md-inline d-lg-none d-xl-inline pl-2">
+                            <b>Janus ESS Cert</b>
+                        </span>
+                        <span class="sr-only">
+                            Janus ESS Cert
+                        </span>
+                    </a>
+
+                    <a class="nav-item btn btn-sm btn-warning text-danger mr-2 mb-1"
+                       onclick="btn_clk_navbar_restart();"
+                       href="javascript:void(0);">
+                        <i class="fas fa-redo-alt"></i>
+                        <span class="d-none d-md-inline d-lg-none d-xl-inline pl-2">
+                            <b>System Restart</b>
+                        </span>
+                        <span class="sr-only">
+                            System Restart
+                        </span>
+                    </a>
+
+                    <a class="nav-item btn btn-sm btn-danger text-warning mr-2 mb-1"
+                       onclick="btn_clk_navbar_shutdown();"
+                       href="javascript:void(0);">
+                        <i class="fas fa-stop-circle"></i>
+                        <span class="d-none d-md-inline d-lg-none d-xl-inline pl-2">
+                            <b>System Shutdown</b>
+                        </span>
+                        <span class="sr-only">
+                            System Restart
+                        </span>
+                    </a>
+                </div>
+
+            </nav>
+        </header>

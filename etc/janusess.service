@@ -1,0 +1,11 @@
+[Unit]
+Description=Janus Research Group Aurora Software
+After=syslog.service network.service ssh.service januscdb.service janusidb.service
+
+[Service]
+Environment="PYTHONPATH=/usr/local/lib/python3.6/dist-packages"
+Type=idle
+ExecStart=/usr/bin/python3 /opt/Janus/ESS/python3/janusess.py
+
+[Install]
+WantedBy=multi-user.target

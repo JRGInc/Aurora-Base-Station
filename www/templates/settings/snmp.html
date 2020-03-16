@@ -1,0 +1,135 @@
+<!--SNMP settings control elements-->
+<div id="settings_snmp"
+     class="settings">
+
+    <h3 class="row d-none d-md-block mb-3 text-left">
+        <a class="col-1"
+           data-target="#nav_settings_sidebar"
+           data-toggle="collapse"
+           href="javascript:void(0);">
+            <i class="fas fa-bars text-violet"></i>
+        </a>
+        <span class="col">
+            <i class="fas fa-bullhorn"></i>
+            SNMP Settings
+        </span>
+    </h3>
+
+    <h4 class="row d-md-none mb-3 text-left">
+        <a class="col-1"
+           data-target="#nav_settings_sidebar"
+           data-toggle="collapse"
+           href="javascript:void(0);">
+            <i class="fas fa-bars text-violet"></i>
+        </a>
+        <span class="col ml-2">
+            <i class="fas fa-bullhorn"></i>
+            SNMP Settings
+        </span>
+    </h4>
+
+    <div class="row">
+
+        <div class="form-group col">
+
+            <div class="input-group mb-3">
+                <div class="input-group-text">
+                    <input type="checkbox"
+                           id="chk_settings_snmp_agent_en"
+                           autocomplete="off"
+                           onchange="chk_clk_settings_snmp_agent_en_toggle();">
+                </div>
+                <div class="input-group-append">
+                    <input type="button"
+                           id="btn_settings_snmp_agent_en"
+                           class="form-control-sm btn alert-danger"
+                           value="SNMP Agent Enabled">
+                </div>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-text">
+                    <input type="checkbox"
+                           id="chk_settings_snmp_notify_en"
+                           autocomplete="off"
+                           onchange="chk_clk_settings_snmp_notify_en_toggle();">
+                </div>
+                <div class="input-group-append">
+                    <input type="button"
+                           id="btn_settings_snmp_notify_en"
+                           class="form-control-sm btn alert-danger"
+                           value="SNMP Notify Enabled">
+                </div>
+            </div>
+
+            <small class="form-text text-muted col-sm-8 col-md-6 col-lg-4 col-xl-2 mb-3">
+                Select to enable individual SNMP services.
+            </small>
+
+            <label for="txt_settings_snmp_server"
+                   class="sr-only col-form-label">
+                SNMP Notification Host Server URL
+            </label>
+            <input type="text"
+                   id="txt_settings_snmp_server"
+                   class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2 settings_snmp_notify"
+                   placeholder="SNMP Notification Host Server URL">
+            <small class="form-text text-muted col-sm-8 col-md-6 col-lg-4 col-xl-2 mb-3">
+                Host server (IPv4 or IPv6 only) to send SNMP notifications.
+            </small>
+
+            <label for="nbr_settings_snmp_port"
+                   class="sr-only col-form-label">
+                SNMP Notification Host Server Port
+            </label>
+            <input type="number"
+                   id="nbr_settings_snmp_port"
+                   class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2 settings_snmp_notify"
+                   placeholder="SNMP Notification Host Server Port"
+                   min="0"
+                   step="1">
+            <small class="form-text text-muted col-sm-8 col-md-6 col-lg-4 col-xl-2 mb-3">
+                Host server port to send SNMP notifications.
+            </small>
+
+            <label for="txt_settings_snmp_comm"
+                   class="sr-only col-form-label">
+                SNMP Notification Host Community
+            </label>
+            <input type="text"
+                   id="txt_settings_snmp_comm"
+                   class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2 settings_snmp_notify"
+                   placeholder="SNMP Notification Host Community">
+            <small class="form-text text-muted col-sm-8 col-md-6 col-lg-4 col-xl-2 mb-3">
+                Host community to send SNMP notifications.
+            </small>
+
+            <input type="submit"
+                   role="button"
+                   class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2 btn btn-info mb-3"
+                   onclick="btn_clk_settings('snmp');"
+                   onmousedown="event.preventDefault();"
+                   value="Update SNMP Settings">
+
+            <br class="d-none d-lg-block">
+            <a role="button"
+               id="a_settings_snmp_mib_janus"
+               class="form-control-sm btn btn-success text-warning col-sm-8 col-md-6 col-lg-4 col-xl-2 mb-3"
+               onmousedown="event.preventDefault();"
+               href="/snmp/mibs/JANUS-MIB"
+               target="JANUS-MIB">
+                Download Janus MIB
+            </a>
+
+            <br class="d-none d-lg-block d-lg-12">
+            <a role="button"
+               id="a_settings_snmp_mib_janusess"
+               class="form-control-sm btn btn-success text-warning col-sm-8 col-md-6 col-lg-4 col-xl-2"
+               onmousedown="event.preventDefault();"
+               href="/snmp/mibs/JANUSESS-MIB"
+               target="JANUSESS-MIB">
+                Download Janus ESS MIB
+            </a>
+        </div>
+    </div>
+</div>

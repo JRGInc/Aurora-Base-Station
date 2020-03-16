@@ -1,0 +1,106 @@
+<!--Core settings control elements-->
+<div id="settings_core"
+     class="settings">
+
+    <h3 class="row d-none d-md-block mb-3 text-left">
+        <a class="col-1"
+           data-target="#nav_settings_sidebar"
+           data-toggle="collapse"
+           href="javascript:void(0);">
+            <i class="fas fa-bars text-violet"></i>
+        </a>
+        <span class="col">
+            <i class="fas fa-cogs"></i>
+            System Values
+        </span>
+    </h3>
+
+    <h4 class="row d-md-none mb-3 text-left">
+        <a class="col-1"
+           data-target="#nav_settings_sidebar"
+           data-toggle="collapse"
+           href="javascript:void(0);">
+            <i class="fas fa-bars text-violet"></i>
+        </a>
+        <span class="col ml-2">
+            <i class="fas fa-cogs"></i>
+            System Values
+        </span>
+    </h4>
+
+    <div class="row">
+
+        <div class="form-group col">
+            <label for="txt_settings_core_sysname"
+                   class="sr-only col-form-label">
+                System Name
+            </label>
+            <input type="text"
+                   id="txt_settings_core_sysname"
+                   class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2 alert-info"
+                   placeholder="System Name">
+            <small class="form-text text-muted col-sm-8 col-md-6 col-lg-4 col-xl-2 mb-3">
+                Unique system name.
+            </small>
+
+            <label for="txt_settings_core_customerid"
+                   class="sr-only">
+                Customer ID
+            </label>
+            <input type="text"
+                   id="txt_settings_core_customerid"
+                   class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2 alert-info"
+                   placeholder="Customer ID">
+            <small class="form-text text-muted col-sm-8 col-md-6 col-lg-4 col-xl-2 mb-3">
+                Janus Research customer id.
+            </small>
+
+            <label for="txt_settings_core_swver"
+                   class="sr-only">
+                Software Version
+            </label>
+            <input type="text"
+                   id="txt_settings_core_swver"
+                   class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2 alert-secondary"
+                   placeholder="Base Unit Software Version"
+                   disabled>
+            <small class="form-text text-muted col-sm-8 col-md-6 col-lg-4 col-xl-2 mb-3">
+                Base Unit Software Version.
+            </small>
+
+            <label for="txt_settings_core_iface"
+                   class="sr-only">
+                Number Interface Ports
+            </label>
+            <input type="text"
+                   id="txt_settings_core_iface"
+                   class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2 alert-secondary"
+                   placeholder="Number Interface Ports"
+                   disabled>
+            <small class="form-text text-muted col-sm-8 col-md-6 col-lg-4 col-xl-2 mb-3">
+                Number of interface ports.
+            </small>
+
+            <label for="txt_settings_core_mmap"
+                   class="sr-only">
+                Highest Memory Map Version
+            </label>
+            <input type="text"
+                   id="txt_settings_core_mmap"
+                   class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2 alert-secondary"
+                   placeholder="Highest Memory Map Version"
+                   disabled>
+            <small class="form-text text-muted col-sm-8 col-md-6 col-lg-4 col-xl-2 mb-3">
+                Memory Map Version.
+            </small>
+
+            <input type="submit"
+                   role="button"
+                   class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2 btn btn-info"
+                   onclick="btn_clk_settings('core');"
+                   onmousedown="event.preventDefault();"
+                   value="Submit System Updates">
+
+        </div>
+    </div>
+</div>

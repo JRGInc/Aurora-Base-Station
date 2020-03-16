@@ -1,0 +1,969 @@
+-- *******************************************************************
+-- JanusESS objects MIB.
+--
+-- Copyright (c) 2016, Janus Research Group, Inc.
+-- All rights reserved.
+--
+-- The contents of this document are subject to change without notice.
+-- *******************************************************************
+
+JANUSESS-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    MODULE-COMPLIANCE,
+    NOTIFICATION-GROUP,
+    OBJECT-GROUP
+                                    FROM SNMPv2-CONF
+    MODULE-IDENTITY,
+    NOTIFICATION-TYPE,
+    OBJECT-TYPE,
+    Integer32
+                                    FROM SNMPv2-SMI
+
+    TEXTUAL-CONVENTION
+                                    FROM SNMPv2-TC
+    janus
+                                    FROM JANUS-MIB
+;
+
+janusessMIB                         MODULE-IDENTITY
+    LAST-UPDATED                    "201806151500Z"
+    ORGANIZATION                    "Janus Research Group, Inc."
+    CONTACT-INFO
+        "Research and Development
+         Janus Research Group, Inc.
+         600 Ponder Place Drive
+         Evans, GA 30809
+
+         E-mail: scott.martin@janusresearch.com
+         HTTP://www.janusresearch.com"
+    DESCRIPTION
+        "This module defines the objects pertaining to Janus
+         Environmental Sensor System.
+
+         DEVELOPER NOTICE: This file must be error checked and
+         converted to a Python module for use by PySNMP via the
+         following commands:
+
+         sudo cp JANUSESS-MIB /var/lib/snmp/mibs/ietf
+         sudo cp JANUS-MIB /var/lib/snmp/mibs/ietf
+         cd /var/lib/snmp/mibs/ietf
+         mibdump.py  --mib-source . JANUSESS-MIB
+         JANUSESS-MIB.py and JANUS-MIB.py located at ~/.snmp/mibs
+
+         In JanusESS Version 0.10.3 and greater JANUSESS-MIB.py should be moved to folder:
+
+         /opt/Janus/ESS/python3/server/snmp/mibs
+
+         On remote Ubuntu linux machine the MIBS should be transferred or symlinked to folder:
+         /var/lib/mibs/iana
+         "
+    REVISION                        "201806151500Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.3.0, JanusESS Version 0.10.3: Renamed symbols to remove 'Aurora'."
+    REVISION                        "201805251500Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.2.1, JanusESS Version 0.10.2: Added sensorEvent status level."
+    REVISION                        "201805021400Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.2.0, JanusESS Version 0.10.1: Removed several lane status fields."
+    REVISION                        "201805011700Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.1.11, JanusESS Version 0.10.1: Refactored 'channel' to 'lane'."
+    REVISION                        "201803011300Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.1.10, JanusESS Version 0.9.5: Removed AMQP items."
+    REVISION                        "201802151300Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.1.9, JanusESS Version 0.9.4: Added poll remaining field for lane."
+    REVISION                        "201802142100Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.1.8, JanusESS Version 0.9.4: Reduced fields for sensor values and notifications."
+    REVISION                        "201801141200Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.1.7, JanusESS Version 0.9.3: Corrected lowest module number to 0.
+        and highest lane number to 3."
+    REVISION                        "201801091500Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.1.6, JanusESS Version 0.9.2: Added laneFirstModule field."
+    REVISION                        "201712171600Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.1.5, JanusESS Version 0.9.1: Removed sensorLocation field."
+    REVISION                        "201709231400Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.1.4, JanusESS Version 0.8.2: Removed lanePollInterval field."
+    REVISION                        "201707271600Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.1.3, JanusESS Version 0.8.1: Reduced two-decimal float to one.
+         Removed laneLocation field.  Added sensorDTG."
+    REVISION                        "201706081508Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.1.2, JanusESS Version 0.8.0: Reranked status orders."
+    REVISION                        "201706081456Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.1.1, JanusESS Version 0.8.0: Revised base status entries."
+    REVISION                        "201705261129Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.1.0, JanusESS Version 0.8.0: Merged poll status into lane status."
+    REVISION                        "201705221806Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.0.15, JanusESS Version 0.7.3: Changed link to lane."
+    REVISION                        "201703242330Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.0.14, JanusESS Version 0.6.7: Decoupled baseProcess from baseTable."
+    REVISION                        "201703231300Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.0.13, JanusESS Version 0.6.7: Removed network monitoring."
+    REVISION                        "201703231200Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.0.12, JanusESS Version 0.6.7: Added poll status notification."
+    REVISION                        "201703231100Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.0.11, JanusESS Version 0.6.7: Simplified base notifications."
+    REVISION                        "201611181900Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.0.10, JanusESS Version 0.6.0: Added baseCouchDBNotify,
+         baseLoggingNotify, baseCouchDB, and baseLogging."
+    REVISION                        "201611072200Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.0.9, JanusESS Version 0.6.0: Added polling table
+         and network table, reconfigured notifications for both."
+    REVISION                        "201611051900Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.0.8, JanusESS Version 0.6.0: Removed truthvalues from MIB
+         and replaced with INTEGER{ false(0), true(1) } for ease of handling in
+         pysnmp.  Updated range for moduleNumberSensors Integer32{0..5}."
+    REVISION                        "201611042100Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.0.7, JanusESS Version 0.6.0: Reduced range of baseIndex
+         to (1..1).  It seems PySNMP requires all entries of each index to be filled
+         in order to perform NEXT and WALK commands."
+    REVISION                        "201611022200Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.0.6, JanusESS Version 0.6.0: Consolidated link,
+         module, and sensor value notifications so that multiple values
+         are reported in one notification."
+    REVISION                        "201611011500Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.0.5, JanusESS Version 0.6.0: Added module
+         status reporting objects and notifications."
+    REVISION                        "201611011400Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.0.4, JanusESS Version 0.6.0: Added link
+         status reporting objects and notifications."
+    REVISION                        "201610291600Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.0.3, JanusESS Version 0.6.0: Added sensor
+         value reporting objects and notifications."
+    REVISION                        "201610291400Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.0.2, JanusESS Version 0.6.0: Added base unit
+         process status objects and notifications."
+    REVISION                        "201610290400Z"
+    DESCRIPTION
+        "JANUSESS-MIB Version 0.0.1, JanusESS Version 0.6.0: Setup MIB."
+    ::= { janus 0 }
+
+--
+--  Textual Conventions
+--
+OneDecimalFloat ::= TEXTUAL-CONVENTION
+    DISPLAY-HINT                    "d-1"
+    STATUS                          current
+    DESCRIPTION
+        "A positive Integer32 used a two decimal floating point."
+
+    SYNTAX                          Integer32 (0..2147483647)
+
+
+--
+-- Reverse Lookup Mapping
+--
+
+janusessNotifications                 OBJECT IDENTIFIER ::= { janusessMIB 0 }
+janusessObjects                       OBJECT IDENTIFIER ::= { janusessMIB 1 }
+janusessConformance                   OBJECT IDENTIFIER ::= { janusessMIB 2 }
+
+
+--
+-- Notification Section
+--
+
+baseProcessNotify                   NOTIFICATION-TYPE
+    OBJECTS                         { baseProcess,
+                                      notifyMessage
+                                    }
+    STATUS                          current
+    DESCRIPTION
+        "This notification indicates base process status."
+    ::= { janusessNotifications 1 }
+
+laneStatusNotify                    NOTIFICATION-TYPE
+    OBJECTS                         { laneStatus,
+                                      laneLastModule,
+                                      lanePollStatus,
+                                      lanePollLastDTG,
+                                      notifyMessage
+                                    }
+    STATUS                          current
+    DESCRIPTION
+        "Reports lane status."
+    ::= { janusessNotifications 101 }
+
+moduleStatusNotify                  NOTIFICATION-TYPE
+    OBJECTS                         { moduleLocation,
+                                      moduleType,
+                                      moduleVersion,
+                                      moduleNumberSensors,
+                                      moduleStatus,
+                                      notifyMessage
+                                    }
+    STATUS                          current
+    DESCRIPTION
+        "Reports module status."
+    ::= { janusessNotifications 201 }
+
+sensorAlertNotify                   NOTIFICATION-TYPE
+    OBJECTS                         { sensorAlertType,
+                                      sensorValue,
+                                      sensorAlertThreshold,
+                                      sensorUnit,
+                                      sensorDescr,
+                                      sensorDTG,
+                                      notifyMessage
+                                    }
+    STATUS                          current
+    DESCRIPTION
+        "Reports an alert value from a sensor."
+    ::= { janusessNotifications 301 }
+
+
+--
+-- Objects Section
+--
+baseProcess                         OBJECT-TYPE
+    SYNTAX                          INTEGER { operational(0),
+                                              sensorEvent(1),
+                                              operationalEvent(2),
+                                              operationalError(3),
+                                              criticalError(4),
+                                              notSetup(5),
+                                              configError(6),
+                                              undetermined(7),
+                                              untracked(8)
+                                            }
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION
+        "JanusESS generic process status."
+    ::= { janusessObjects 1 }
+
+baseTable                           OBJECT-TYPE
+    SYNTAX                          SEQUENCE OF BaseEntry
+    MAX-ACCESS                      not-accessible
+    STATUS                          current
+    DESCRIPTION
+       "A table of objects that display heartbeat information
+        pertaining to processes on the JanusESS base unit."
+    ::= { janusessObjects 2 }
+
+    baseEntry                       OBJECT-TYPE
+        SYNTAX                      BaseEntry
+        MAX-ACCESS                  not-accessible
+        STATUS                      current
+        DESCRIPTION
+            "A set of objects that display JanusESS base unit
+            process statuses."
+        INDEX                       { baseIndex }
+        ::= { baseTable 1 }
+
+    BaseEntry ::= SEQUENCE {
+        baseIndex
+            Integer32,
+        baseCommandListener
+            INTEGER,
+        baseCouchDB
+            INTEGER,
+        baseEmail
+            INTEGER,
+        baseFile
+            INTEGER,
+        baseInfluxDB
+            INTEGER,
+        baseInterface
+            INTEGER,
+        baseLogging
+            INTEGER,
+        baseNetwork
+            INTEGER,
+        basePollData
+            INTEGER,
+        basePollDispatch
+            INTEGER,
+        baseTasks
+            INTEGER
+    }
+
+    baseIndex                       OBJECT-TYPE
+        SYNTAX                      Integer32 (0 .. 0)
+        MAX-ACCESS                  not-accessible
+        STATUS                      current
+        DESCRIPTION
+            "This variable uniquely identifies the JanusESS base unit process."
+        ::= { baseEntry 1 }
+
+    baseCommandListener             OBJECT-TYPE
+        SYNTAX                      INTEGER { operational(0),
+                                              sensorEvent(1),
+                                              operationalEvent(2),
+                                              operationalError(3),
+                                              criticalError(4),
+                                              notSetup(5),
+                                              configError(6),
+                                              undetermined(7),
+                                              untracked(8)
+                                            }
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "JanusESS command listener status."
+        ::= { baseEntry 2 }
+
+    baseCouchDB                     OBJECT-TYPE
+        SYNTAX                      INTEGER { operational(0),
+                                              sensorEvent(1),
+                                              operationalEvent(2),
+                                              operationalError(3),
+                                              criticalError(4),
+                                              notSetup(5),
+                                              configError(6),
+                                              undetermined(7),
+                                              untracked(8)
+                                            }
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "JanusESS CouchDB status."
+        ::= { baseEntry 3 }
+
+    baseEmail                       OBJECT-TYPE
+        SYNTAX                      INTEGER { operational(0),
+                                              sensorEvent(1),
+                                              operationalEvent(2),
+                                              operationalError(3),
+                                              criticalError(4),
+                                              notSetup(5),
+                                              configError(6),
+                                              undetermined(7),
+                                              untracked(8)
+                                            }
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "JanusESS email status."
+        ::= { baseEntry 4 }
+
+    baseFile                        OBJECT-TYPE
+        SYNTAX                      INTEGER { operational(0),
+                                              sensorEvent(1),
+                                              operationalEvent(2),
+                                              operationalError(3),
+                                              criticalError(4),
+                                              notSetup(5),
+                                              configError(6),
+                                              undetermined(7),
+                                              untracked(8)
+                                            }
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "JanusESS file status."
+        ::= { baseEntry 5 }
+
+    baseInfluxDB                    OBJECT-TYPE
+        SYNTAX                      INTEGER { operational(0),
+                                              sensorEvent(1),
+                                              operationalEvent(2),
+                                              operationalError(3),
+                                              criticalError(4),
+                                              notSetup(5),
+                                              configError(6),
+                                              undetermined(7),
+                                              untracked(8)
+                                            }
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "JanusESS InfluxDB status."
+        ::= { baseEntry 6 }
+
+    baseInterface                   OBJECT-TYPE
+        SYNTAX                      INTEGER { operational(0),
+                                              sensorEvent(1),
+                                              operationalEvent(2),
+                                              operationalError(3),
+                                              criticalError(4),
+                                              notSetup(5),
+                                              configError(6),
+                                              undetermined(7),
+                                              untracked(8)
+                                            }
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "JanusESS interface status."
+        ::= { baseEntry 7 }
+
+    baseLogging                     OBJECT-TYPE
+        SYNTAX                      INTEGER { operational(0),
+                                              sensorEvent(1),
+                                              operationalEvent(2),
+                                              operationalError(3),
+                                              criticalError(4),
+                                              notSetup(5),
+                                              configError(6),
+                                              undetermined(7),
+                                              untracked(8)
+                                            }
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "JanusESS interface logging status."
+        ::= { baseEntry 8 }
+
+    baseNetwork                     OBJECT-TYPE
+        SYNTAX                      INTEGER { operational(0),
+                                              sensorEvent(1),
+                                              operationalEvent(2),
+                                              operationalError(3),
+                                              criticalError(4),
+                                              notSetup(5),
+                                              configError(6),
+                                              undetermined(7),
+                                              untracked(8)
+                                            }
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "JanusESS network connectivity status."
+        ::= { baseEntry 9 }
+
+    basePollData                    OBJECT-TYPE
+        SYNTAX                      INTEGER { operational(0),
+                                              sensorEvent(1),
+                                              operationalEvent(2),
+                                              operationalError(3),
+                                              criticalError(4),
+                                              notSetup(5),
+                                              configError(6),
+                                              undetermined(7),
+                                              untracked(8)
+                                            }
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "JanusESS poll data status."
+        ::= { baseEntry 10 }
+
+    basePollDispatch                OBJECT-TYPE
+        SYNTAX                      INTEGER { operational(0),
+                                              sensorEvent(1),
+                                              operationalEvent(2),
+                                              operationalError(3),
+                                              criticalError(4),
+                                              notSetup(5),
+                                              configError(6),
+                                              undetermined(7),
+                                              untracked(8)
+                                            }
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "JanusESS AMQP command status."
+        ::= { baseEntry 11 }
+
+    baseTasks                       OBJECT-TYPE
+        SYNTAX                      INTEGER { operational(0),
+                                              sensorEvent(1),
+                                              operationalEvent(2),
+                                              operationalError(3),
+                                              criticalError(4),
+                                              notSetup(5),
+                                              configError(6),
+                                              undetermined(7),
+                                              untracked(8)
+                                            }
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "JanusESS task scheduler status."
+        ::= { baseEntry 12 }
+
+laneTable                           OBJECT-TYPE
+    SYNTAX                          SEQUENCE OF LaneEntry
+    MAX-ACCESS                      not-accessible
+    STATUS                          current
+    DESCRIPTION
+        "A table of objects that display lane information
+         pertaining to lane status and modules attached
+         to a network."
+    ::= { janusessObjects 3 }
+
+    laneEntry                       OBJECT-TYPE
+        SYNTAX                      LaneEntry
+        MAX-ACCESS                  not-accessible
+        STATUS                      current
+        DESCRIPTION
+            "A set of objects that display lane information."
+        INDEX                       { laneAddress }
+        ::= { laneTable 1 }
+
+    LaneEntry ::= SEQUENCE {
+        laneAddress
+            Integer32,
+        laneStatus
+            INTEGER,
+        laneLastModule
+            Integer32,
+        lanePollStatus
+            INTEGER,
+        lanePollLastDTG
+            OCTET STRING
+    }
+
+    laneAddress                     OBJECT-TYPE
+        SYNTAX                      Integer32 (0 .. 4)
+        MAX-ACCESS                  not-accessible
+        STATUS                      current
+        DESCRIPTION
+            "This variable uniquely identifies the lane."
+        ::= { laneEntry 1 }
+
+    laneStatus                      OBJECT-TYPE
+        SYNTAX                      INTEGER { operational(0),
+                                              sensorEvent(1),
+                                              operationalEvent(2),
+                                              operationalError(3),
+                                              criticalError(4),
+                                              notSetup(5),
+                                              configError(6),
+                                              undetermined(7),
+                                              untracked(8)
+                                            }
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "Lane status."
+        ::= { laneEntry 2 }
+
+    laneLastModule                  OBJECT-TYPE
+       SYNTAX                       Integer32 (-1 .. 126)
+       MAX-ACCESS                   read-only
+       STATUS                       current
+       DESCRIPTION
+           "This variable indicates last module on the network."
+       ::= { laneEntry 4 }
+
+    lanePollStatus                  OBJECT-TYPE
+        SYNTAX                      INTEGER { operational(0),
+                                              sensorEvent(1),
+                                              operationalEvent(2),
+                                              operationalError(3),
+                                              criticalError(4),
+                                              notSetup(5),
+                                              configError(6),
+                                              undetermined(7),
+                                              untracked(8)
+                                            }
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "This variable provides status for the polling operation."
+        ::= { laneEntry 5 }
+
+    lanePollLastDTG                 OBJECT-TYPE
+        SYNTAX                      OCTET STRING
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "This variable indicates last time poll was conducted."
+        ::= { laneEntry 6 }
+
+moduleTable                         OBJECT-TYPE
+    SYNTAX                          SEQUENCE OF ModuleEntry
+    MAX-ACCESS                      not-accessible
+    STATUS                          current
+    DESCRIPTION
+        "A table of objects that display module information
+         pertaining to modules attached to a network."
+    ::= { janusessObjects 4 }
+
+    moduleEntry                     OBJECT-TYPE
+        SYNTAX                      ModuleEntry
+        MAX-ACCESS                  not-accessible
+        STATUS                      current
+        DESCRIPTION
+            "A set of objects that display module information."
+        INDEX                       { moduleLaneAddress,
+                                      moduleAddress
+                                    }
+       ::= { moduleTable 1 }
+
+    ModuleEntry ::= SEQUENCE {
+        moduleLaneAddress
+            Integer32,
+        moduleAddress
+            Integer32,
+        moduleType
+            OCTET STRING,
+        moduleVersion
+            OCTET STRING,
+        moduleLocation
+            OCTET STRING,
+        moduleStatus
+            INTEGER,
+        moduleNumberSensors
+            Integer32
+    }
+
+    moduleLaneAddress               OBJECT-TYPE
+        SYNTAX                      Integer32 (0 .. 3)
+        MAX-ACCESS                  not-accessible
+        STATUS                      current
+        DESCRIPTION
+            "This variable uniquely identifies the lane containing the
+             attached module."
+        ::= { moduleEntry 1 }
+
+    moduleAddress                   OBJECT-TYPE
+        SYNTAX                      Integer32 (0 .. 126)
+        MAX-ACCESS                  not-accessible
+        STATUS                      current
+        DESCRIPTION
+            "This variable uniquely identifies the module."
+        ::= { moduleEntry 2 }
+
+    moduleType                      OBJECT-TYPE
+        SYNTAX                      OCTET STRING
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "This variable specifies module type."
+        ::= { moduleEntry 3 }
+
+    moduleVersion                   OBJECT-TYPE
+        SYNTAX                      OCTET STRING
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "This variable specifies module type version."
+        ::= { moduleEntry 4 }
+
+    moduleLocation                  OBJECT-TYPE
+        SYNTAX                      OCTET STRING
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "This variable provides full location data for the module:
+             e.g: Building 1, Room 5, rack 5, uppershelf."
+        ::= { moduleEntry 5 }
+
+    moduleStatus                    OBJECT-TYPE
+        SYNTAX                      INTEGER { operational(0),
+                                              sensorEvent(1),
+                                              operationalEvent(2),
+                                              operationalError(3),
+                                              criticalError(4),
+                                              notSetup(5),
+                                              configError(6),
+                                              undetermined(7),
+                                              untracked(8)
+                                            }
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "Module status."
+        ::= { moduleEntry 6 }
+
+    moduleNumberSensors             OBJECT-TYPE
+        SYNTAX                      Integer32 (0 .. 5)
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "This is the value reported by the sensor."
+        ::= { moduleEntry 7 }
+
+sensorTable                         OBJECT-TYPE
+    SYNTAX                          SEQUENCE OF SensorEntry
+    MAX-ACCESS                      not-accessible
+    STATUS                          current
+    DESCRIPTION
+        "A table of objects that display sensor information
+         pertaining to sensors attached to a link module."
+    ::= { janusessObjects 5 }
+
+    sensorEntry                     OBJECT-TYPE
+        SYNTAX                      SensorEntry
+        MAX-ACCESS                  not-accessible
+        STATUS                      current
+        DESCRIPTION
+               "A set of objects that display sensor information."
+        INDEX                       { sensorLaneAddress,
+                                      sensorModAddress,
+                                      sensorAddress
+                                    }
+        ::= { sensorTable 1 }
+
+    SensorEntry ::= SEQUENCE {
+        sensorLaneAddress
+            Integer32,
+        sensorModAddress
+            Integer32,
+        sensorAddress
+            Integer32,
+        sensorDescr
+            OCTET STRING,
+        sensorUnit
+            OCTET STRING,
+        sensorValue
+            OneDecimalFloat,
+        sensorAlertThreshold
+            OneDecimalFloat,
+        sensorAlertType
+            INTEGER,
+        sensorDTG
+            OCTET STRING
+    }
+
+    sensorLaneAddress               OBJECT-TYPE
+        SYNTAX                      Integer32 (0 .. 3)
+        MAX-ACCESS                  not-accessible
+        STATUS                      current
+        DESCRIPTION
+            "This variable uniquely identifies the lane containing the module
+             on which the sensor is attached."
+        ::= { sensorEntry 1 }
+
+    sensorModAddress                OBJECT-TYPE
+        SYNTAX                      Integer32 (0 .. 126)
+        MAX-ACCESS                  not-accessible
+        STATUS                      current
+        DESCRIPTION
+            "This variable uniquely identifies the module on which the sensor
+             is attached."
+        ::= { sensorEntry 2 }
+
+    sensorAddress                   OBJECT-TYPE
+        SYNTAX                      Integer32 (0 .. 5)
+        MAX-ACCESS                  not-accessible
+        STATUS                      current
+        DESCRIPTION
+            "This variable uniquely identifies the sensor."
+        ::= { sensorEntry 3 }
+
+    sensorDescr                     OBJECT-TYPE
+        SYNTAX                      OCTET STRING
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "This variable provides sensor description:
+             e.g: DS18B20 Temperature Sensor."
+        ::= { sensorEntry 4 }
+
+    sensorUnit                      OBJECT-TYPE
+        SYNTAX                      OCTET STRING
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "This variable provides sensor value unit:
+             e.g: degrees C."
+        ::= { sensorEntry 5 }
+
+    sensorValue                     OBJECT-TYPE
+        SYNTAX                      OneDecimalFloat
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "This is the value reported by the sensor."
+        ::= { sensorEntry 6 }
+
+    sensorAlertThreshold            OBJECT-TYPE
+        SYNTAX                      OneDecimalFloat
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "This is the threshold value that
+             triggers a value alert."
+        ::= { sensorEntry 7 }
+
+    sensorAlertType                 OBJECT-TYPE
+        SYNTAX                      INTEGER { none(0),
+                                              low(1),
+                                              high(2)
+                                            }
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "An indicator of a sensor value that triggers an alert."
+        ::= { sensorEntry 8 }
+
+    sensorDTG                       OBJECT-TYPE
+        SYNTAX                      OCTET STRING
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+            "The date time group of the polled data."
+        ::= { sensorEntry 9 }
+
+notifyMessage                       OBJECT-TYPE
+    SYNTAX                          OCTET STRING
+    MAX-ACCESS                      read-only
+    STATUS                          current
+    DESCRIPTION
+        "This variable provides a textual message for notifications."
+    ::= { janusessObjects 7 }
+
+--
+-- Conformance Section
+--
+
+janusessCompliances                   OBJECT IDENTIFIER ::= { janusessConformance 1 }
+janusessGroups                        OBJECT IDENTIFIER ::= { janusessConformance 2 }
+
+janusessCompliance                    MODULE-COMPLIANCE
+    STATUS  current
+    DESCRIPTION
+        "Describes the requirements for conformance to the
+         JanusESS MIB."
+    MODULE
+        MANDATORY-GROUPS            { baseGroup,
+                                      laneGroup,
+                                      moduleGroup,
+                                      sensorGroup,
+                                      defaultGroup,
+                                      baseNotificationGroup,
+                                      laneNotificationGroup,
+                                      moduleNotificationGroup,
+                                      sensorNotificationGroup
+                                    }
+        GROUP                       baseGroup
+        DESCRIPTION
+            "The baseGroup is mandatory."
+        GROUP                       laneGroup
+        DESCRIPTION
+            "The linkGroup is mandatory."
+        GROUP                       moduleGroup
+        DESCRIPTION
+            "The moduleGroup is mandatory."
+        GROUP                       sensorGroup
+        DESCRIPTION
+            "The sensorGroup is mandatory."
+        GROUP                       defaultGroup
+        DESCRIPTION
+            "The defaultGroup is mandatory."
+        GROUP                       baseNotificationGroup
+        DESCRIPTION
+            "The baseNotificationGroup is mandatory."
+        GROUP                       laneNotificationGroup
+        DESCRIPTION
+            "The linkNotificationGroup is mandatory."
+        GROUP                       moduleNotificationGroup
+        DESCRIPTION
+            "The moduleNotificationGroup is mandatory."
+        GROUP                       sensorNotificationGroup
+        DESCRIPTION
+            "The sensorNotificationGroup is mandatory."
+    ::= { janusessCompliances 1 }
+
+baseGroup                           OBJECT-GROUP
+    OBJECTS                         { baseCommandListener,
+                                      baseCouchDB,
+                                      baseEmail,
+                                      baseFile,
+                                      baseInfluxDB,
+                                      baseInterface,
+                                      baseLogging,
+                                      baseNetwork,
+                                      basePollData,
+                                      basePollDispatch,
+                                      baseTasks
+                                    }
+    STATUS                          current
+    DESCRIPTION
+        "JanusESS Base Unit Objects."
+    ::= { janusessGroups 1 }
+
+laneGroup                           OBJECT-GROUP
+    OBJECTS                         { laneStatus,
+                                      laneLastModule,
+                                      lanePollStatus,
+                                      lanePollLastDTG
+                                    }
+    STATUS                          current
+    DESCRIPTION
+        "JanusESS Link Objects."
+    ::= { janusessGroups 2 }
+
+moduleGroup                         OBJECT-GROUP
+    OBJECTS                         { moduleType,
+                                      moduleVersion,
+                                      moduleLocation,
+                                      moduleStatus,
+                                      moduleNumberSensors
+                                    }
+    STATUS                          current
+    DESCRIPTION
+        "JanusESS Module Objects."
+    ::= { janusessGroups 3 }
+
+sensorGroup                         OBJECT-GROUP
+    OBJECTS                         { sensorDescr,
+                                      sensorUnit,
+                                      sensorValue,
+                                      sensorAlertThreshold,
+                                      sensorAlertType,
+                                      sensorDTG
+                                    }
+    STATUS                          current
+    DESCRIPTION
+        "JanusESS Sensor Objects."
+    ::= { janusessGroups 4 }
+
+defaultGroup                        OBJECT-GROUP
+    OBJECTS                         { baseProcess,
+                                      notifyMessage
+                                    }
+    STATUS                          current
+    DESCRIPTION
+        "JanusESS Default Objects."
+    ::= { janusessGroups 5 }
+
+baseNotificationGroup               NOTIFICATION-GROUP
+    NOTIFICATIONS                   { baseProcessNotify }
+    STATUS                          current
+    DESCRIPTION
+        "Base Process Notifications."
+    ::= { janusessGroups 6 }
+
+laneNotificationGroup               NOTIFICATION-GROUP
+    NOTIFICATIONS                   { laneStatusNotify }
+    STATUS                          current
+    DESCRIPTION
+        "Lane Notifications."
+    ::= { janusessGroups 7 }
+
+moduleNotificationGroup             NOTIFICATION-GROUP
+    NOTIFICATIONS                   { moduleStatusNotify }
+    STATUS                          current
+    DESCRIPTION
+        "Module Notifications."
+    ::= { janusessGroups 8 }
+
+sensorNotificationGroup             NOTIFICATION-GROUP
+    NOTIFICATIONS                   { sensorAlertNotify }
+    STATUS                          current
+    DESCRIPTION
+        "Sensor Notifications."
+    ::= { janusessGroups 9 }
+
+END

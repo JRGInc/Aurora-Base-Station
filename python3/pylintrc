@@ -1,0 +1,94 @@
+[MESSAGES CONTROL]
+
+# Disable the message, report, category or checker with the given id(s). You
+# can either give multiple identifiers separated by comma (,) or put this
+# option multiple times (only on the command line, not in the configuration
+# file where it should appear only once).You can also use "--disable=all" to
+# disable everything first and then reenable specific checks. For example, if
+# you want to run only the similarities checker, you can use "--disable=all
+# --enable=similarities". If you want to run only the classes checker, but have
+# no Warning level messages displayed, use"--disable=all --enable=classes
+# --disable=W"
+disable=locally-disabled,locally-enabled,unused-argument,missing-docstring,fixme,no-self-use,abstract-method,super-on-old-class,property-on-old-class
+
+# Notes on above disabling:
+#
+# locally-disabled, locally-enabled:
+# Just info messages where we're turning off/on pylint categories for blocks of
+# code where there were lots of false positives.
+#
+# unused-argument
+# Some functions and methods take in arguments that are never used, but usually
+# that's to match some pre-existing example such as with the **kwargs passed
+# into tastypie Resource-based methods.  We're going to stick with convention
+# rather than remove/alter the parameters.
+#
+# missing-docstring
+# We do have some documentation, but a lot of the methods are self-documenting
+# due to the fact we're mocking existing BI2R services.
+#
+# fixme
+# We do put TODOs in the code in places where there may be a hint for something
+# that could be considered in the future.  We do not generally consider it a bug
+# or program flaw.
+#
+# no-self-use
+# Pylint is complaining that a method in a class doesn't use any class-level state
+# and therefore could be moved out.  But it may be a class for scoping purposes
+# perhaps.  There's not a huge benefit in refactoring these, so we turn this off.
+#
+# abstract-method
+# These tend to come up related to tastypie's Resource class.  Pylint considers
+# any method that raises NotImplementedError to be abstract, but in the case of
+# our Resource-based classes for instance, there's simply no reason to implement
+# those methods so it would create unnecessary noise.
+#
+# super-on-old-class, property-on-old-class:
+# Started appearing on pylint 1.3.0.  We don't use any old-style classes.  Some
+# indication online that this may be a bug in pylint or astroid.  Try removing
+# if we later upgrade to newer versions.
+
+
+[REPORTS]
+
+# Tells whether to display a full report or only the messages
+reports=no
+
+
+[FORMAT]
+
+# Maximum number of characters on a single line.
+max-line-length=120
+
+# Maximum number of lines in a module
+max-module-lines=3000
+
+
+[DESIGN]
+
+# Maximum number of arguments for function / method
+max-args=15
+
+# Maximum number of locals for function / method body
+max-locals=55
+
+# Maximum number of return / yield for function / method body
+max-returns=10
+
+# Maximum number of branch for function / method body
+max-branches=80
+
+# Maximum number of statements in function / method body
+max-statements=170
+
+# Maximum number of parents for a class (see R0901).
+max-parents=10
+
+# Maximum number of attributes for a class (see R0902).
+max-attributes=20
+
+# Minimum number of public methods for a class (see R0903).
+min-public-methods=0
+
+# Maximum number of public methods for a class (see R0904).
+max-public-methods=150

@@ -1,0 +1,71 @@
+<!--Cloud settings control elements-->
+<div id="settings_cloud"
+     class="settings">
+
+    <h3 class="row d-none d-md-block mb-3 text-left">
+        <a class="col-1"
+           data-target="#nav_settings_sidebar"
+           data-toggle="collapse"
+           href="javascript:void(0);">
+            <i class="fas fa-bars text-violet"></i>
+        </a>
+        <span class="col">
+            <i class="fas fa-cloud-upload-alt"></i>
+            Cloud Settings
+        </span>
+    </h3>
+
+    <h4 class="row d-md-none mb-3 text-left">
+        <a class="col-1"
+           data-target="#nav_settings_sidebar"
+           data-toggle="collapse"
+           href="javascript:void(0);">
+            <i class="fas fa-bars text-violet"></i>
+        </a>
+        <span class="col ml-2">
+            <i class="fas fa-cloud-upload-alt"></i>
+            Cloud Settings
+        </span>
+    </h4>
+
+    <div class="row">
+
+        <div class="form-group col">
+
+            <div class="input-group mb-3">
+                <div class="input-group-text">
+                    <input type="checkbox"
+                           id="chk_settings_cloud_en"
+                           autocomplete="off"
+                           onchange="chk_clk_settings_cloud_en_toggle();">
+                </div>
+                <div class="input-group-append">
+                    <input type="button"
+                           id="btn_settings_cloud_en"
+                           class="btn alert-danger"
+                           value="Cloud Enabled">
+                </div>
+            </div>
+
+            <label for="txt_settings_cloud_url"
+                   class="sr-only col-form-label">
+                Cloud Server
+            </label>
+            <input type="text"
+                   id="txt_settings_cloud_url"
+                   class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2 alert-info"
+                   placeholder="Cloud Server URL (without 'http://' prefix)">
+            <small class="form-text text-muted col-sm-8 col-md-6 col-lg-4 col-xl-2 mb-3">
+                Send data to this server (without 'http://').
+            </small>
+
+            <input type="submit"
+                   role="button"
+                   class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2 btn btn-info"
+                   onclick="btn_clk_settings('cloud');"
+                   onmousedown="event.preventDefault();"
+                   value="Submit Cloud Updates">
+
+        </div>
+    </div>
+</div>

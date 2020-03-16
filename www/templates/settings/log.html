@@ -1,0 +1,671 @@
+<!--Log settings control elements-->
+<div id="settings_log"
+     class="settings">
+
+    <h3 class="row d-none d-md-block mb-3 text-left">
+        <a class="col-1"
+           data-target="#nav_settings_sidebar"
+           data-toggle="collapse"
+           href="javascript:void(0);">
+            <i class="fas fa-bars text-violet"></i>
+        </a>
+        <span class="col">
+            <i class="fas fa-list-ol"></i>
+            Log Settings
+        </span>
+    </h3>
+
+    <h4 class="row d-md-none mb-3 text-left">
+        <a class="col-1"
+           data-target="#nav_settings_sidebar"
+           data-toggle="collapse"
+           href="javascript:void(0);">
+            <i class="fas fa-bars text-violet"></i>
+        </a>
+        <span class="col ml-2">
+            <i class="fas fa-list-ol"></i>
+            Log Settings
+        </span>
+    </h4>
+
+    <div class="row">
+
+        <div class="form-group col-lg-6">
+
+            <!--<div class="form-control-sm btn-group-toggle"-->
+
+            <div class="form-control-sm btn-group btn-group-sm btn-group-toggle flex-wrap justify-content-center"
+                 data-toggle="buttons">
+                <label id="lbl_settings_log0_activity"
+                       class="btn text-center lbl_settings_log_activity"
+                       onclick="lbl_clk_settings_log_activity_toggle('DEBUG');">
+                    <input type="radio"
+                           id="rad_settings_log0_activity"
+                           name="rad_settings_log_activity"
+                           autocomplete="off"
+                           value="DEBUG">
+                    DEBUG
+                </label>
+
+                <label id="lbl_settings_log1_activity"
+                       class="btn text-center lbl_settings_log_activity"
+                       onclick="lbl_clk_settings_log_activity_toggle('INFO');">
+                    <input type="radio"
+                           id="rad_settings_log1_activity"
+                           name="rad_settings_log_activity"
+                           autocomplete="off"
+                           value="INFO">
+                    INFO
+                </label>
+
+                <label id="lbl_settings_log2_activity"
+                       class="btn text-center lbl_settings_log_activity"
+                       onclick="lbl_clk_settings_log_activity_toggle('ERROR');">
+                    <input type="radio"
+                           id="rad_settings_log2_activity"
+                           name="rad_settings_log_activity"
+                           autocomplete="off"
+                           value="ERROR">
+                    ERROR
+                </label>
+
+                <label id="lbl_settings_log3_activity"
+                       class="btn text-center lbl_settings_log_activity"
+                       onclick="lbl_clk_settings_log_activity_toggle('WARNING');">
+                    <input type="radio"
+                           id="rad_settings_log3_activity"
+                           name="rad_settings_log_activity"
+                           autocomplete="off"
+                           value="WARNING">
+                    WARNING
+                </label>
+
+                <label id="lbl_settings_log4_activity"
+                       class="btn text-center lbl_settings_log_activity"
+                       onclick="lbl_clk_settings_log_activity_toggle('CRITICAL');">
+                    <input type="radio"
+                           id="rad_settings_log4_activity"
+                           name="rad_settings_log_activity"
+                           autocomplete="off"
+                           value="CRITICAL">
+                    CRITICAL
+                </label>
+            </div>
+
+            <small class="form-text text-muted mb-3">
+                Log level for 'activity' log.
+            </small>
+
+
+            <div class="form-control-sm btn-group btn-group-sm btn-group-toggle flex-wrap justify-content-center"
+                 data-toggle="buttons">
+                <label id="lbl_settings_log0_janusess"
+                       class="btn text-center lbl_settings_log_janusess"
+                       onclick="lbl_clk_settings_log_janusess_toggle('DEBUG');">
+                    <input type="radio"
+                           id="rad_settings_log0_janusess"
+                           name="rad_settings_log_janusess"
+                           autocomplete="off"
+                           value="DEBUG">
+                    DEBUG
+                </label>
+
+                <label id="lbl_settings_log1_janusess"
+                       class="btn text-center lbl_settings_log_janusess"
+                       onclick="lbl_clk_settings_log_janusess_toggle('INFO');">
+                    <input type="radio"
+                           id="rad_settings_log1_janusess"
+                           name="rad_settings_log_janusess"
+                           autocomplete="off"
+                           value="INFO">
+                    INFO
+                </label>
+
+                <label id="lbl_settings_log2_janusess"
+                       class="btn text-center lbl_settings_log_janusess"
+                       onclick="lbl_clk_settings_log_janusess_toggle('ERROR');">
+                    <input type="radio"
+                           id="rad_settings_log2_janusess"
+                           name="rad_settings_log_janusess"
+                           autocomplete="off"
+                           value="ERROR">
+                    ERROR
+                </label>
+
+                <label id="lbl_settings_log3_janusess"
+                       class="btn text-center lbl_settings_log_janusess"
+                       onclick="lbl_clk_settings_log_janusess_toggle('WARNING');">
+                    <input type="radio"
+                           id="rad_settings_log3_janusess"
+                           name="rad_settings_log_janusess"
+                           autocomplete="off"
+                           value="WARNING">
+                    WARNING
+                </label>
+
+                <label id="lbl_settings_log4_janusess"
+                       class="btn text-center lbl_settings_log_janusess"
+                       onclick="lbl_clk_settings_log_janusess_toggle('CRITICAL');">
+                    <input type="radio"
+                           id="rad_settings_log4_janusess"
+                           name="rad_settings_log_janusess"
+                           autocomplete="off"
+                           value="CRITICAL">
+                    CRITICAL
+                </label>
+            </div>
+
+            <small class="form-text text-muted mb-3">
+                Log level for 'janusess' log.
+            </small>
+
+
+            <div class="form-control-sm btn-group btn-group-sm btn-group-toggle flex-wrap justify-content-center"
+                 data-toggle="buttons">
+                <label id="lbl_settings_log0_command"
+                       class="btn text-center lbl_settings_log_command"
+                       onclick="lbl_clk_settings_log_command_toggle('DEBUG');">
+                    <input type="radio"
+                           id="rad_settings_log0_command"
+                           name="rad_settings_log_command"
+                           autocomplete="off"
+                           value="DEBUG">
+                    DEBUG
+                </label>
+
+                <label id="lbl_settings_log1_command"
+                       class="btn text-center lbl_settings_log_command"
+                       onclick="lbl_clk_settings_log_command_toggle('INFO');">
+                    <input type="radio"
+                           id="rad_settings_log1_command"
+                           name="rad_settings_log_command"
+                           autocomplete="off"
+                           value="INFO">
+                    INFO
+                </label>
+
+                <label id="lbl_settings_log2_command"
+                       class="btn text-center lbl_settings_log_command"
+                       onclick="lbl_clk_settings_log_command_toggle('ERROR');">
+                    <input type="radio"
+                           id="rad_settings_log2_command"
+                           name="rad_settings_log_command"
+                           autocomplete="off"
+                           value="ERROR">
+                    ERROR
+                </label>
+
+                <label id="lbl_settings_log3_command"
+                       class="btn text-center lbl_settings_log_command"
+                       onclick="lbl_clk_settings_log_command_toggle('WARNING');">
+                    <input type="radio"
+                           id="rad_settings_log3_command"
+                           name="rad_settings_log_command"
+                           autocomplete="off"
+                           value="WARNING">
+                    WARNING
+                </label>
+
+                <label id="lbl_settings_log4_command"
+                       class="btn text-center lbl_settings_log_command"
+                       onclick="lbl_clk_settings_log_command_toggle('CRITICAL');">
+                    <input type="radio"
+                           id="rad_settings_log4_command"
+                           name="rad_settings_log_command"
+                           autocomplete="off"
+                           value="CRITICAL">
+                    CRITICAL
+                </label>
+            </div>
+
+            <small class="form-text text-muted mb-3">
+                Log level for 'command' log.
+            </small>
+
+            <div class="form-control-sm btn-group btn-group-sm btn-group-toggle flex-wrap justify-content-center"
+                 data-toggle="buttons">
+                <label id="lbl_settings_log0_conversion"
+                       class="btn text-center lbl_settings_log_conversion"
+                       onclick="lbl_clk_settings_log_conversion_toggle('DEBUG');">
+                    <input type="radio"
+                           id="rad_settings_log0_conversion"
+                           name="rad_settings_log_conversion"
+                           autocomplete="off"
+                           value="DEBUG">
+                    DEBUG
+                </label>
+
+                <label id="lbl_settings_log1_conversion"
+                       class="btn text-center lbl_settings_log_conversion"
+                       onclick="lbl_clk_settings_log_conversion_toggle('INFO');">
+                    <input type="radio"
+                           id="rad_settings_log1_conversion"
+                           name="rad_settings_log_conversion"
+                           autocomplete="off"
+                           value="INFO">
+                    INFO
+                </label>
+
+                <label id="lbl_settings_log2_conversion"
+                       class="btn text-center lbl_settings_log_conversion"
+                       onclick="lbl_clk_settings_log_conversion_toggle('ERROR');">
+                    <input type="radio"
+                           id="rad_settings_log2_conversion"
+                           name="rad_settings_log_conversion"
+                           autocomplete="off"
+                           value="ERROR">
+                    ERROR
+                </label>
+
+                <label id="lbl_settings_log3_conversion"
+                       class="btn text-center lbl_settings_log_conversion"
+                       onclick="lbl_clk_settings_log_conversion_toggle('WARNING');">
+                    <input type="radio"
+                           id="rad_settings_log3_conversion"
+                           name="rad_settings_log_conversion"
+                           autocomplete="off"
+                           value="WARNING">
+                    WARNING
+                </label>
+
+                <label id="lbl_settings_log4_conversion"
+                       class="btn text-center lbl_settings_log_conversion"
+                       onclick="lbl_clk_settings_log_conversion_toggle('CRITICAL');">
+                    <input type="radio"
+                           id="rad_settings_log4_conversion"
+                           name="rad_settings_log_conversion"
+                           autocomplete="off"
+                           value="CRITICAL">
+                    CRITICAL
+                </label>
+            </div>
+
+            <small class="form-text text-muted mb-3">
+                Log level for 'conversion' log.
+            </small>
+
+            <div class="form-control-sm btn-group btn-group-sm btn-group-toggle flex-wrap justify-content-center"
+                 data-toggle="buttons">
+                <label id="lbl_settings_log0_heartbeat"
+                       class="btn text-center lbl_settings_log_heartbeat"
+                       onclick="lbl_clk_settings_log_heartbeat_toggle('DEBUG');">
+                    <input type="radio"
+                           id="rad_settings_log0_heartbeat"
+                           name="rad_settings_log_heartbeat"
+                           autocomplete="off"
+                           value="DEBUG">
+                    DEBUG
+                </label>
+
+                <label id="lbl_settings_log1_heartbeat"
+                       class="btn text-center lbl_settings_log_heartbeat"
+                       onclick="lbl_clk_settings_log_heartbeat_toggle('INFO');">
+                    <input type="radio"
+                           id="rad_settings_log1_heartbeat"
+                           name="rad_settings_log_heartbeat"
+                           autocomplete="off"
+                           value="INFO">
+                    INFO
+                </label>
+
+                <label id="lbl_settings_log2_heartbeat"
+                       class="btn text-center lbl_settings_log_heartbeat"
+                       onclick="lbl_clk_settings_log_heartbeat_toggle('ERROR');">
+                    <input type="radio"
+                           id="rad_settings_log2_heartbeat"
+                           name="rad_settings_log_heartbeat"
+                           autocomplete="off"
+                           value="ERROR">
+                    ERROR
+                </label>
+
+                <label id="lbl_settings_log3_heartbeat"
+                       class="btn text-center lbl_settings_log_heartbeat"
+                       onclick="lbl_clk_settings_log_heartbeat_toggle('WARNING');">
+                    <input type="radio"
+                           id="rad_settings_log3_heartbeat"
+                           name="rad_settings_log_heartbeat"
+                           autocomplete="off"
+                           value="WARNING">
+                    WARNING
+                </label>
+
+                <label id="lbl_settings_log4_heartbeat"
+                       class="btn text-center lbl_settings_log_heartbeat"
+                       onclick="lbl_clk_settings_log_heartbeat_toggle('CRITICAL');">
+                    <input type="radio"
+                           id="rad_settings_log4_heartbeat"
+                           name="rad_settings_log_heartbeat"
+                           autocomplete="off"
+                           value="CRITICAL">
+                    CRITICAL
+                </label>
+            </div>
+
+            <small class="form-text text-muted">
+                Log level for 'heartbeat' log.
+            </small>
+
+        </div>
+
+        <div class="form-group col-lg-6">
+
+            <div class="form-control-sm btn-group btn-group-sm btn-group-toggle flex-wrap justify-content-center"
+                 data-toggle="buttons">
+                <label id="lbl_settings_log0_interface"
+                       class="btn text-center lbl_settings_log_interface"
+                       onclick="lbl_clk_settings_log_interface_toggle('DEBUG');">
+                    <input type="radio"
+                           id="rad_settings_log0_interface"
+                           name="rad_settings_log_interface"
+                           autocomplete="off"
+                           value="DEBUG">
+                    DEBUG
+                </label>
+
+                <label id="lbl_settings_log1_interface"
+                       class="btn text-center lbl_settings_log_interface"
+                       onclick="lbl_clk_settings_log_interface_toggle('INFO');">
+                    <input type="radio"
+                           id="rad_settings_log1_interface"
+                           name="rad_settings_log_interface"
+                           autocomplete="off"
+                           value="INFO">
+                    INFO
+                </label>
+
+                <label id="lbl_settings_log2_interface"
+                       class="btn text-center lbl_settings_log_interface"
+                       onclick="lbl_clk_settings_log_interface_toggle('ERROR');">
+                    <input type="radio"
+                           id="rad_settings_log2_interface"
+                           name="rad_settings_log_interface"
+                           autocomplete="off"
+                           value="ERROR">
+                    ERROR
+                </label>
+
+                <label id="lbl_settings_log3_interface"
+                       class="btn text-center lbl_settings_log_interface"
+                       onclick="lbl_clk_settings_log_interface_toggle('WARNING');">
+                    <input type="radio"
+                           id="rad_settings_log3_interface"
+                           name="rad_settings_log_interface"
+                           autocomplete="off"
+                           value="WARNING">
+                    WARNING
+                </label>
+
+                <label id="lbl_settings_log4_interface"
+                       class="btn text-center lbl_settings_log_interface"
+                       onclick="lbl_clk_settings_log_interface_toggle('CRITICAL');">
+                    <input type="radio"
+                           id="rad_settings_log4_interface"
+                           name="rad_settings_log_interface"
+                           autocomplete="off"
+                           value="CRITICAL">
+                    CRITICAL
+                </label>
+            </div>
+
+            <small class="form-text text-muted mb-3">
+                Log level for 'interface' log.
+            </small>
+
+            <div class="form-control-sm btn-group btn-group-sm btn-group-toggle flex-wrap justify-content-center"
+                 data-toggle="buttons">
+                <label id="lbl_settings_log0_polling"
+                       class="btn text-center lbl_settings_log_polling"
+                       onclick="lbl_clk_settings_log_polling_toggle('DEBUG');">
+                    <input type="radio"
+                           id="rad_settings_log0_polling"
+                           name="rad_settings_log_polling"
+                           autocomplete="off"
+                           value="DEBUG">
+                    DEBUG
+                </label>
+
+                <label id="lbl_settings_log1_polling"
+                       class="btn text-center lbl_settings_log_polling"
+                       onclick="lbl_clk_settings_log_polling_toggle('INFO');">
+                    <input type="radio"
+                           id="rad_settings_log1_polling"
+                           name="rad_settings_log_polling"
+                           autocomplete="off"
+                           value="INFO">
+                    INFO
+                </label>
+
+                <label id="lbl_settings_log2_polling"
+                       class="btn text-center lbl_settings_log_polling"
+                       onclick="lbl_clk_settings_log_polling_toggle('ERROR');">
+                    <input type="radio"
+                           id="rad_settings_log2_polling"
+                           name="rad_settings_log_polling"
+                           autocomplete="off"
+                           value="ERROR">
+                    ERROR
+                </label>
+
+                <label id="lbl_settings_log3_polling"
+                       class="btn text-center lbl_settings_log_polling"
+                       onclick="lbl_clk_settings_log_polling_toggle('WARNING');">
+                    <input type="radio"
+                           id="rad_settings_log3_polling"
+                           name="rad_settings_log_polling"
+                           autocomplete="off"
+                           value="WARNING">
+                    WARNING
+                </label>
+
+                <label id="lbl_settings_log4_polling"
+                       class="btn text-center lbl_settings_log_polling"
+                       onclick="lbl_clk_settings_log_polling_toggle('CRITICAL');">
+                    <input type="radio"
+                           id="rad_settings_log4_polling"
+                           name="rad_settings_log_polling"
+                           autocomplete="off"
+                           value="CRITICAL">
+                    CRITICAL
+                </label>
+            </div>
+
+            <small class="form-text text-muted mb-3">
+                Log level for 'polling' log.
+            </small>
+
+            <div class="form-control-sm btn-group btn-group-sm btn-group-toggle flex-wrap justify-content-center"
+                 data-toggle="buttons">
+                <label id="lbl_settings_log0_server"
+                       class="btn text-center lbl_settings_log_server"
+                       onclick="lbl_clk_settings_log_server_toggle('DEBUG');">
+                    <input type="radio"
+                           id="rad_settings_log0_server"
+                           name="rad_settings_log_server"
+                           autocomplete="off"
+                           value="DEBUG">
+                    DEBUG
+                </label>
+
+                <label id="lbl_settings_log1_server"
+                       class="btn text-center lbl_settings_log_server"
+                       onclick="lbl_clk_settings_log_server_toggle('INFO');">
+                    <input type="radio"
+                           id="rad_settings_log1_server"
+                           name="rad_settings_log_server"
+                           autocomplete="off"
+                           value="INFO">
+                    INFO
+                </label>
+
+                <label id="lbl_settings_log2_server"
+                       class="btn text-center lbl_settings_log_server"
+                       onclick="lbl_clk_settings_log_server_toggle('ERROR');">
+                    <input type="radio"
+                           id="rad_settings_log2_server"
+                           name="rad_settings_log_server"
+                           autocomplete="off"
+                           value="ERROR">
+                    ERROR
+                </label>
+
+                <label id="lbl_settings_log3_server"
+                       class="btn text-center lbl_settings_log_server"
+                       onclick="lbl_clk_settings_log_server_toggle('WARNING');">
+                    <input type="radio"
+                           id="rad_settings_log3_server"
+                           name="rad_settings_log_server"
+                           autocomplete="off"
+                           value="WARNING">
+                    WARNING
+                </label>
+
+                <label id="lbl_settings_log4_server"
+                       class="btn text-center lbl_settings_log_server"
+                       onclick="lbl_clk_settings_log_server_toggle('CRITICAL');">
+                    <input type="radio"
+                           id="rad_settings_log4_server"
+                           name="rad_settings_log_server"
+                           autocomplete="off"
+                           value="CRITICAL">
+                    CRITICAL
+                </label>
+            </div>
+
+            <small class="form-text text-muted mb-3">
+                Log level for 'server' log.
+            </small>
+
+            <div class="form-control-sm btn-group btn-group-sm btn-group-toggle flex-wrap justify-content-center"
+                 data-toggle="buttons">
+                <label id="lbl_settings_log0_setup"
+                       class="btn text-center lbl_settings_log_setup"
+                       onclick="lbl_clk_settings_log_setup_toggle('DEBUG');">
+                    <input type="radio"
+                           id="rad_settings_log0_setup"
+                           name="rad_settings_log_setup"
+                           autocomplete="off"
+                           value="DEBUG">
+                    DEBUG
+                </label>
+
+                <label id="lbl_settings_log1_setup"
+                       class="btn text-center lbl_settings_log_setup"
+                       onclick="lbl_clk_settings_log_setup_toggle('INFO');">
+                    <input type="radio"
+                           id="rad_settings_log1_setup"
+                           name="rad_settings_log_setup"
+                           autocomplete="off"
+                           value="INFO">
+                    INFO
+                </label>
+
+                <label id="lbl_settings_log2_setup"
+                       class="btn text-center lbl_settings_log_setup"
+                       onclick="lbl_clk_settings_log_setup_toggle('ERROR');">
+                    <input type="radio"
+                           id="rad_settings_log2_setup"
+                           name="rad_settings_log_setup"
+                           autocomplete="off"
+                           value="ERROR">
+                    ERROR
+                </label>
+
+                <label id="lbl_settings_log3_setup"
+                       class="btn text-center lbl_settings_log_setup"
+                       onclick="lbl_clk_settings_log_setup_toggle('WARNING');">
+                    <input type="radio"
+                           id="rad_settings_log3_setup"
+                           name="rad_settings_log_setup"
+                           autocomplete="off"
+                           value="WARNING">
+                    WARNING
+                </label>
+
+                <label id="lbl_settings_log4_setup"
+                       class="btn text-center lbl_settings_log_setup"
+                       onclick="lbl_clk_settings_log_setup_toggle('CRITICAL');">
+                    <input type="radio"
+                           id="rad_settings_log4_setup"
+                           name="rad_settings_log_setup"
+                           autocomplete="off"
+                           value="CRITICAL">
+                    CRITICAL
+                </label>
+            </div>
+
+            <small class="form-text text-muted mb-3">
+                Log level for 'setup' log.
+            </small>
+
+            <div class="form-control-sm btn-group btn-group-sm btn-group-toggle flex-wrap justify-content-center"
+                 data-toggle="buttons">
+                <label id="lbl_settings_log0_tasks"
+                       class="btn text-center lbl_settings_log_tasks"
+                       onclick="lbl_clk_settings_log_tasks_toggle('DEBUG');">
+                    <input type="radio"
+                           id="rad_settings_log0_tasks"
+                           name="rad_settings_log_tasks"
+                           autocomplete="off"
+                           value="DEBUG">
+                    DEBUG
+                </label>
+
+                <label id="lbl_settings_log1_tasks"
+                       class="btn text-center lbl_settings_log_tasks"
+                       onclick="lbl_clk_settings_log_tasks_toggle('INFO');">
+                    <input type="radio"
+                           id="rad_settings_log1_tasks"
+                           name="rad_settings_log_tasks"
+                           autocomplete="off"
+                           value="INFO">
+                    INFO
+                </label>
+
+                <label id="lbl_settings_log2_tasks"
+                       class="btn text-center lbl_settings_log_tasks"
+                       onclick="lbl_clk_settings_log_tasks_toggle('ERROR');">
+                    <input type="radio"
+                           id="rad_settings_log2_tasks"
+                           name="rad_settings_log_tasks"
+                           autocomplete="off"
+                           value="ERROR">
+                    ERROR
+                </label>
+
+                <label id="lbl_settings_log3_tasks"
+                       class="btn text-center lbl_settings_log_tasks"
+                       onclick="lbl_clk_settings_log_tasks_toggle('WARNING');">
+                    <input type="radio"
+                           id="rad_settings_log3_tasks"
+                           name="rad_settings_log_tasks"
+                           autocomplete="off"
+                           value="WARNING">
+                    WARNING
+                </label>
+
+                <label id="lbl_settings_log4_tasks"
+                       class="btn text-center lbl_settings_log_tasks"
+                       onclick="lbl_clk_settings_log_tasks_toggle('CRITICAL');">
+                    <input type="radio"
+                           id="rad_settings_log4_tasks"
+                           name="rad_settings_log_tasks"
+                           autocomplete="off"
+                           value="CRITICAL">
+                    CRITICAL
+                </label>
+            </div>
+
+            <small class="form-text text-muted mb-3">
+                Log level for 'tasks' log.
+            </small>
+
+            <input type="submit"
+                   role="button"
+                   class="form-control-sm col-sm-8 col-md-6 col-lg-8 col-xl-4 btn btn-info"
+                   onclick="btn_clk_settings('log');"
+                   onmousedown="event.preventDefault();"
+                   value="Submit Log Updates">
+        </div>
+    </div>
+</div>

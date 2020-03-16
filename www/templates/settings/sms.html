@@ -1,0 +1,184 @@
+<!--SMS settings control elements-->
+<div id="settings_sms"
+     class="settings">
+
+    <h3 class="row d-none d-md-block mb-3 text-left">
+        <a class="col-1"
+           data-target="#nav_settings_sidebar"
+           data-toggle="collapse"
+           href="javascript:void(0);">
+            <i class="fas fa-bars text-violet"></i>
+        </a>
+        <span class="col">
+            <i class="fas fa-mobile-alt"></i>
+            SMS Settings
+        </span>
+    </h3>
+
+    <h4 class="row d-md-none mb-3 text-left">
+        <a class="col-1"
+           data-target="#nav_settings_sidebar"
+           data-toggle="collapse"
+           href="javascript:void(0);">
+            <i class="fas fa-bars text-violet"></i>
+        </a>
+        <span class="col ml-2">
+            <i class="fas fa-mobile-alt"></i>
+            SMS Settings
+        </span>
+    </h4>
+
+    <div class="row">
+
+        <div class="form-group col-lg-4">
+
+            <div class="input-group mb-3">
+                <div class="input-group-text">
+                    <input type="checkbox"
+                           id="chk_settings_sms_en"
+                           autocomplete="off"
+                           onchange="chk_clk_settings_sms_en_toggle();">
+                </div>
+                <div class="input-group-append">
+                    <input type="button"
+                           id="btn_settings_sms_en"
+                           class="form-control-sm btn alert-danger"
+                           value="SMS Enabled">
+                </div>
+            </div>
+
+            <input type="submit"
+                   role="button"
+                   class="form-control-sm col-sm-8 col-md-6 col-lg-12 col-xl-6 btn btn-info mb-3"
+                   onclick="btn_clk_settings('sms');"
+                   onmousedown="event.preventDefault();"
+                   value="Submit SMS Updates">
+
+        </div>
+
+        <div class="form-group col-lg-8">
+
+            <div class="row px-3">
+
+                <label for="txt_settings_sms_mobile"
+                       class="sr-only col-form-label col-sm-8 col-md-6 col-lg-4 col-xl-2">
+                    SMS Mobile Number
+                </label>
+                <input type="text"
+                       id="txt_settings_sms_mobile"
+                       class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2"
+                       placeholder="SMS Mobile Number">
+
+                <div class="form-control-sm btn-group btn-group-sm">
+
+                    <button type="button"
+                            id="btn_settings_sms_gateways"
+                            class="btn btn-primary">
+                        Select Carrier
+                    </button>
+                    <button type="button"
+                            class="btn btn-info dropdown-toggle dropdown-toggle-split"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false">
+                        <span class="sr-only">
+                            Toggle Dropdown
+                        </span>
+                    </button>
+                    <div id="dm_settings_sms_carriers"
+                         class="dropdown-menu dropdown-menu-right">
+
+                    </div>
+                </div>
+
+                <div class="form-control-sm btn-group btn-group-sm btn-group-toggle flex-wrap justify-content-center"
+                     data-toggle="buttons">
+
+                    <label id="lbl_settings_sms0_list"
+                           class="btn text-center lbl_settings_sms_list"
+                           onclick="lbl_clk_settings_sms_list_toggle('status');">
+                        <input type="radio"
+                               id="rad_settings_sms0_list"
+                               name="rad_settings_sms_list"
+                               autocomplete="off"
+                               value="status">
+                        Status List
+                    </label>
+
+                    <label id="lbl_settings_sms1_list"
+                           class="btn text-center lbl_settings_sms_list"
+                           onclick="lbl_clk_settings_sms_list_toggle('alert');">
+                        <input type="radio"
+                               id="rad_settings_sms1_list"
+                               name="rad_settings_sms_list"
+                               autocomplete="off"
+                               value="alert">
+                        Alert List
+                    </label>
+
+                    <label id="lbl_settings_sms2_list"
+                           class="btn text-center lbl_settings_sms_list"
+                           onclick="lbl_clk_settings_sms_list_toggle('error');">
+                        <input type="radio"
+                               id="rad_settings_sms2_list"
+                               name="rad_settings_sms_list"
+                               autocomplete="off"
+                               value="error">
+                        Error List
+                    </label>
+
+                </div>
+
+                <small class="form-text text-muted col-12 mb-3">
+                    Enter mobile number ("(xxx) xxx-xxxx" or "+xx-xxxx-xxxx") and select carrier to add, or "Delete Number", then the list to change.
+                </small>
+
+                <input type="submit"
+                       role="button"
+                       id="btn_settings_sms_list"
+                       class="form-control-sm col-sm-8 col-md-6 col-lg-6 col-xl-4 btn btn-info mb-3"
+                       onclick="btn_clk_settings('sms_list');"
+                       onmousedown="event.preventDefault();">
+
+            </div>
+
+            <div class="row px-3">
+
+                <section class="col-md-4">
+                    <h5 class="text-center">
+                        SMS Status List
+                    </h5>
+                    <table class="table">
+                        <tbody id="tbody_settings_sms_status">
+
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="col-md-4">
+                    <h5 class="text-center">
+                        SMS Alert List
+                    </h5>
+                    <table class="table">
+                        <tbody id="tbody_settings_sms_alert">
+
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="col-md-4">
+                    <h5 class="text-center">
+                        SMS Error List
+                    </h5>
+                    <table class="table">
+                        <tbody id="tbody_settings_sms_error">
+
+                        </tbody>
+                    </table>
+                </section>
+
+            </div>
+
+        </div>
+    </div>
+</div>

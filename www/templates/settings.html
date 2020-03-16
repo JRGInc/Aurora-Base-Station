@@ -1,0 +1,35 @@
+<!--Settings page elements-->
+<div id="index_settings"
+     class="container-fluid row index_document">
+
+    <div class="d-flex flex-nowrap">
+
+        {% include 'navigation/sidebar_settings.html' %}
+
+        <!--Main window elements-->
+        <main role="main"
+              class="float-left col col-sm col-lg col-xl">
+
+            {% include 'settings/core.html' %}
+
+            {% include 'settings/dataunits.html' %}
+
+            {% include 'settings/log.html' %}
+
+            {% include 'settings/compact.html' %}
+
+            {% include 'settings/update.html' %}
+
+            {% include 'settings/cloud.html' %}
+
+            {% include 'settings/network.html' %}
+
+            {% include 'settings/email.html' %}
+
+            {% include 'settings/sms.html' %}
+
+            {% include 'settings/snmp.html' %}
+
+        </main>
+    </div>
+</div>

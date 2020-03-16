@@ -1,0 +1,157 @@
+/*
+ * Base structure
+ */
+
+/* Responsive font sizes */
+html {
+  font-size: 0.9rem;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 1.0rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.1rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+.bg-gray {
+  background-color: #e0e2e4 !important;
+}
+
+.bg-lightblue {
+  background-color: #cee0f5 !important;
+}
+
+.bg-tope {
+  background-color: #fff4d0 !important;
+}
+
+.bg-violet {
+  background-color: #5c5693 !important;
+}
+
+.bg-magenta {
+  background-color: #c30092 !important;
+}
+
+.text-gray {
+  color: #e0e2e4 !important;
+}
+
+.text-lightblue {
+  color: #cee0f5 !important;
+}
+
+.text-tope {
+  color: #fff4d0 !important;
+}
+
+.text-violet {
+  color: #5c5693 !important;
+}
+
+.text-magenta {
+  color: #c30092 !important;
+}
+
+.table-borderless {
+  border: 0px;
+}
+
+.table-borderless th,
+.table-borderless td {
+  border: 0px0;
+}
+
+.table-borderless thead th,
+.table-borderless thead td {
+  border-bottom-width: 0px;
+}
+
+.table-borderless tbody th,
+.table-borderless tbody td {
+  border-bottom-width: 0px;
+}
+
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+body {
+  padding-top: 3.5rem;
+  background-color: #d4ac6e;
+}
+
+/*
+ * Typography
+ */
+
+h1 {
+  padding-bottom: 9px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  border-right: 1px solid #eee;
+}
+
+.sidebar .nav {
+  margin-bottom: 20px;
+}
+
+.sidebar .nav-item {
+  width: 100%;
+}
+
+.sidebar .nav-item + .nav-item {
+  margin-left: 0;
+}
+
+.sidebar .nav-link {
+  border-radius: 0;
+}
+
+/*
+ * Dashboard
+ */
+
+/* Placeholders */
+.placeholders {
+  padding-bottom: 3rem;
+}
+
+.placeholder img {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+input[type=radio] {
+  visibility: hidden;
+}
+
+#status_base_activity_receive {
+    height: 500px;
+    overflow: auto;
+}

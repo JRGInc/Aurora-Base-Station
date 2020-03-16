@@ -1,0 +1,65 @@
+        <!--document/#index_lane/sidebar elements-->
+        <nav id="nav_lanes_sidebar"
+             class="float-left col-2 col-sm-4 col-md-2 col-xl-1 px-1 collapse show">
+
+            <!--Side Bar elements-->
+            <div class="list-group border-0">
+
+                {% for lane in range(0, 4) %}
+
+                <a id="a_sidebar_lanes{{ lane }}"
+                   class="list-group-item row d-inline-block collapsed a_sidebar_lanes bg-light"
+                   data-parent="#nav_lanes_sidebar"
+                   aria-expanded="false"
+                   onclick="a_clk_lane_sidebar_toggle({{ lane }});"
+                   href="javascript:void(0);">
+
+                    <h4 class="text-center">
+                        {% if lane == 0 %}
+                        <i class="fas fa-chess-pawn"></i>
+                        {% elif lane == 1 %}
+                        <i class="fas fa-chess-knight"></i>
+                        {% elif lane == 2 %}
+                        <i class="fas fa-chess-rook"></i>
+                        {% elif lane == 3 %}
+                        <i class="fas fa-chess-bishop"></i>
+                        {% endif %}
+
+                        <span class="d-none d-sm-inline pl-2">
+                            Lane {{ lane }}
+                        </span>
+                        <span class="sr-only">
+                            Lane {{ lane }}
+                        </span>
+                    </h4>
+
+                    <button type="button"
+                            id="btn_lane{{ lane }}_status"
+                            class="btn col-12 mb-1">
+                        <span id="span_lane{{ lane }}_status_sym"
+                              class="d-sm-none">
+                            <i class="fas fa-question"></i>
+                        </span>
+                        <span id="span_lane{{ lane }}_status"
+                              class="d-none d-sm-inline pl-1">
+                            Undetermined
+                        </span>
+                    </button>
+
+                    <button type="button"
+                            class="btn btn-warning pl-1 col-12">
+                        <span id="span_sidebar_lanes{{ lane }}_mods"
+                              class="badge badge-pill badge-dark span_sidebar_lanes_mods">
+                            0
+                        </span>
+                        <span class="d-none d-sm-inline pl-1">
+                            Modules
+                        </span>
+                    </button>
+                </a>
+
+                {% endfor %}
+
+            </div>
+
+        </nav>

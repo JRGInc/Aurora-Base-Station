@@ -1,0 +1,41 @@
+-- *******************************************************************
+-- Janus Research Group product objects MIB.
+--
+-- Copyright (c) 2016, Janus Research Group, Inc.
+-- All rights reserved.
+--
+-- The contents of this document are subject to change without notice.
+-- *******************************************************************
+
+JANUS-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    MODULE-IDENTITY,
+    enterprises
+                            FROM SNMPv2-SMI
+;
+
+janus  	                    MODULE-IDENTITY
+    LAST-UPDATED "201610280000Z"
+    ORGANIZATION  "Janus Research Group, Inc."
+    CONTACT-INFO
+        "Research and Development
+         Janus Research Group, Inc.
+         600 Ponder Place Drive
+         Evans, GA 30809
+
+         E-mail: scott.martin@janusresearch.com
+         HTTP://www.janusresearch.com"
+    DESCRIPTION
+        "This module defines the objects pertaining to Aurora
+        Environmental Sensor System"
+    REVISION      "201610280000Z"
+    DESCRIPTION   "JANUS-MIB Version 0.0.1"
+    ::= {enterprises 9934}
+
+--
+-- Sub OID Listing:
+--      9934.0: AURORA-MIB Aurora Environmental Sensor System
+--
+
+END

@@ -1,0 +1,172 @@
+<!--Data Units settings control elements-->
+<div id="settings_dataunits"
+     class="settings">
+
+    <h3 class="row d-none d-md-block mb-3 text-left">
+        <a class="col-1"
+           data-target="#nav_settings_sidebar"
+           data-toggle="collapse"
+           href="javascript:void(0);">
+            <i class="fas fa-bars text-violet"></i>
+        </a>
+        <span class="col">
+            <i class="fas fa-university"></i>
+            Data Units
+        </span>
+    </h3>
+
+    <h4 class="row d-md-none mb-3 text-left">
+        <a class="col-1"
+           data-target="#nav_settings_sidebar"
+           data-toggle="collapse"
+           href="javascript:void(0);">
+            <i class="fas fa-bars text-violet"></i>
+        </a>
+        <span class="col ml-2">
+            <i class="fas fa-university"></i>
+            Data Units
+        </span>
+    </h4>
+
+    <div class="row">
+
+        <div class="form-group col">
+
+            <!--Data Units/Temperature settings control elements-->
+            <div class="form-group mb-5">
+                <div class="form-control-sm btn-group btn-group-sm btn-group-toggle flex-wrap justify-content-center"
+                     data-toggle="buttons">
+
+                    <label id="lbl_settings_dataunits_temp0"
+                           class="btn text-center lbl_settings_dataunits_temp"
+                           onclick="lbl_clk_settings_dataunits_temp_toggle('celsius');">
+                        <input type="radio"
+                               id="rad_settings_dataunits_temp0"
+                               name="rad_settings_dataunits_temp"
+                               autocomplete="off"
+                               value="celsius">
+                        Celsius
+                    </label>
+
+                    <label id="lbl_settings_dataunits_temp1"
+                           class="btn text-center lbl_settings_dataunits_temp"
+                           onclick="lbl_clk_settings_dataunits_temp_toggle('fahrenheit');">
+                        <input type="radio"
+                               id="rad_settings_dataunits_temp1"
+                               name="rad_settings_dataunits_temp"
+                               autocomplete="off"
+                               value="fahrenheit">
+                        Fahrenheit
+                    </label>
+
+                    <label id="lbl_settings_dataunits_temp2"
+                           class="btn text-center lbl_settings_dataunits_temp"
+                           onclick="lbl_clk_settings_dataunits_temp_toggle('kelvin');">
+                        <input type="radio"
+                               id="rad_settings_dataunits_temp2"
+                               name="rad_settings_dataunits_temp"
+                               autocomplete="off"
+                               value="kelvin">
+                        Kelvin
+                    </label>
+
+                </div>
+                <small class="form-text text-muted mb-3">
+                    Temperature unit to report.
+                </small>
+
+                <input type="submit"
+                       role="button"
+                       class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2 btn btn-info"
+                       onclick="btn_clk_settings('temp');"
+                       onmousedown="event.preventDefault();"
+                       value="Submit Temp. Updates">
+            </div>
+
+            <!--Data Units/Pressure settings control elements-->
+            <div class="form-group">
+
+                <div class="form-control-sm btn-group btn-group-sm btn-group-toggle flex-wrap justify-content-center"
+                     data-toggle="buttons">
+                    <label id="lbl_settings_dataunits_press0"
+                           class="btn text-center lbl_settings_dataunits_press"
+                           onclick="lbl_clk_settings_dataunits_press_toggle('pascal');">
+                        <input type="radio"
+                               id="rad_settings_dataunits_press0"
+                               name="rad_settings_dataunits_press"
+                               autocomplete="off"
+                               value="pascal">
+                        Pascal
+                    </label>
+
+                    <label id="lbl_settings_dataunits_press1"
+                           class="btn text-center lbl_settings_dataunits_press"
+                           onclick="lbl_clk_settings_dataunits_press_toggle('hectopascal');">
+                        <input type="radio"
+                               id="rad_settings_dataunits_press1"
+                               name="rad_settings_dataunits_press"
+                               autocomplete="off"
+                               value="hectopascal">
+                        Hectopascal
+                    </label>
+
+                    <label id="lbl_settings_dataunits_press2"
+                           class="btn text-center lbl_settings_dataunits_press"
+                           onclick="lbl_clk_settings_dataunits_press_toggle('torr');">
+                        <input type="radio"
+                               id="rad_settings_dataunits_press2"
+                               name="rad_settings_dataunits_press"
+                               autocomplete="off"
+                               value="torr">
+                        Torr
+                    </label>
+
+                    <label id="lbl_settings_dataunits_press3"
+                           class="btn text-center lbl_settings_dataunits_press"
+                           onclick="lbl_clk_settings_dataunits_press_toggle('millibar');">
+                        <input type="radio"
+                               id="rad_settings_dataunits_press3"
+                               name="rad_settings_dataunits_press"
+                               autocomplete="off"
+                               value="millibar">
+                        Millibar
+                    </label>
+
+                    <label id="lbl_settings_dataunits_press4"
+                           class="btn text-center lbl_settings_dataunits_press"
+                           onclick="lbl_clk_settings_dataunits_press_toggle('atmosphere');">
+                        <input type="radio"
+                               id="rad_settings_dataunits_press4"
+                               name="rad_settings_dataunits_press"
+                               autocomplete="off"
+                               value="atmosphere">
+                        Atmosphere
+                    </label>
+
+                    <label id="lbl_settings_dataunits_press5"
+                           class="btn text-center lbl_settings_dataunits_press"
+                           onclick="lbl_clk_settings_dataunits_press_toggle('psi');">
+                        <input type="radio"
+                               id="rad_settings_dataunits_press5"
+                               name="rad_settings_dataunits_press"
+                               autocomplete="off"
+                               value="psi">
+                        PSI
+                    </label>
+                </div>
+
+                <small class="form-text text-muted mb-3">
+                    Pressure unit to report.
+                </small>
+
+                <input type="submit"
+                       role="button"
+                       class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2 btn btn-info"
+                       onclick="btn_clk_settings('press');"
+                       onmousedown="event.preventDefault();"
+                       value="Submit Press. Updates">
+
+            </div>
+        </div>
+    </div>
+</div>

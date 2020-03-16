@@ -1,0 +1,133 @@
+<!-- Modal -->
+<div id="lane{{ lane }}_sensor"
+     class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="lane_modconfig_title"
+     aria-hidden="true">
+    <div class="modal-dialog"
+         role="document">
+        <div class="modal-content bg-tope">
+            <div class="modal-header">
+                <h5 class="modal-title d-md-none mb-3 text-center">
+                    Sensor Configuration
+                </h5>
+                <h4 class="modal-title d-none d-md-block d-lg-none mb-3 text-center">
+                    Sensor Configuration
+                </h4>
+                <h3 class="modal-title d-none d-lg-block mb-3 text-center">
+                    Sensor Configuration
+                </h3>
+                <button type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">
+                      &times;
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="form-group col-12">
+                        <div class="container-fluid row">
+
+                            <label for="nbr_lane{{ lane }}_trig_low"
+                                   class="col-12">
+                                Low Trigger
+                            </label>
+                            <div class="input-group">
+                                <input type="number"
+                                       id="nbr_lane{{ lane }}_trig_low"
+                                       class="form-control-sm col-4 alert-info"
+                                       placeholder="Low Threshold">
+                                <div class="input-group-append">
+                                    <input type="button"
+                                           id="btn_lane{{ lane }}_sensor_low_min"
+                                           class="form-control-sm btn btn-sm col-7 btn-danger"
+                                           value="Min: Not Set"
+                                           disabled>
+                                    <input type="button"
+                                           id="btn_lane{{ lane }}_sensor_low_max"
+                                           class="form-control-sm btn btn-sm col-7 btn-danger"
+                                           value="Max: Not Set"
+                                           disabled>
+                                </div>
+                            </div>
+                            <small class="col-12 form-text text-muted mb-3">
+                                Low value--when exceeded reporting takes place.
+                            </small>
+
+                            <label for="nbr_lane{{ lane }}_trig_high"
+                                   class="col-12">
+                                High Trigger
+                            </label>
+                            <div class="input-group">
+                                <input type="number"
+                                       id="nbr_lane{{ lane }}_trig_high"
+                                       class="form-control-sm col-4 alert-info"
+                                       placeholder="High Threshold">
+                                <div class="input-group-append">
+                                    <input type="button"
+                                           id="btn_lane{{ lane }}_sensor_high_min"
+                                           class="form-control-sm btn btn-sm col-7 btn-danger"
+                                           value="Min: Not Set"
+                                           disabled>
+                                    <input type="button"
+                                           id="btn_lane{{ lane }}_sensor_high_max"
+                                           class="form-control-sm btn btn-sm col-7 btn-danger"
+                                           value="Max: Not Set"
+                                           disabled>
+                                </div>
+                            </div>
+                            <small class="col-12 form-text text-muted mb-3">
+                                High value--when exceeded reporting takes place.
+                            </small>
+
+                            <label for="nbr_lane{{ lane }}_trig_int"
+                                   class="col-12">
+                                Trigger Interval
+                            </label>
+                            <input type="number"
+                                   id="nbr_lane{{ lane }}_trig_int"
+                                   class="form-control-sm col-4 alert-info"
+                                   placeholder="Trigger Interval (sec)"
+                                   min="0">
+                            <small class="col-12 form-text text-muted mb-3">
+                                Interval (sec) for how frequently reporting takes place.
+                            </small>
+
+                            <label for="nbr_lane{{ lane }}_trig_step"
+                                   class="col-12">
+                                Trigger Step
+                            </label>
+                            <input type="number"
+                                   id="nbr_lane{{ lane }}_trig_step"
+                                   class="form-control-sm col-4 alert-info"
+                                   placeholder="Trigger Step"
+                                   min="0">
+                            <small class="col-12 form-text text-muted mb-3">
+                                Sensor value increment for when new reporting takes place.
+                            </small>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal">
+                    Close
+                </button>
+                <button id="btn_lane{{ lane }}_sensor_update"
+                        type="button"
+                        class="btn btn-primary">
+                    Save changes
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div id="lane{{ lane }}_poll"
+     class="mb-3 lanes">
+
+    <div class="row">
+
+        <div class="form-group col text-left">
+
+            <input type="submit"
+                   role="button"
+                   id="btn_lane{{ lane }}_reset"
+                   class="form-control-sm col-10 col-md-4 col-lg-2 mb-1 btn"
+                   onclick='btn_clk_lane_reset({{ lane }})'
+                   onmousedown="event.preventDefault();"
+                   value="Reset Lane">
+
+            <input type="submit"
+                   role="button"
+                   id="btn_lane{{ lane }}_poll_start"
+                   class="form-control-sm col-10 col-md-4 col-lg-2 mb-1 btn"
+                   onclick="btn_clk_lane_poll_start({{ lane }});"
+                   onmousedown="event.preventDefault();"
+                   value="Cyclic Polling">
+
+            <input type="submit"
+                   role="button"
+                   id="btn_lane{{ lane }}_poll_stop"
+                   class="form-control-sm col-10 col-md-4 col-lg-2 mb-1 btn"
+                   onclick="btn_clk_lane_poll_stop({{ lane }});"
+                   onmousedown="event.preventDefault();"
+                   value="Stop Polling">
+
+            <input type="submit"
+                   role="button"
+                   id="btn_lane{{ lane }}_poll_clear"
+                   class="form-control-sm col-10 col-md-4 col-lg-2 mb-1 btn"
+                   onclick="btn_clk_lane_poll_clear({{ lane }});"
+                   onmousedown="event.preventDefault();"
+                   value="Clear Poll Data">
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+<!--Update settings control elements-->
+<div id="settings_update"
+     class="settings">
+
+    <h3 class="row d-none d-md-block mb-3 text-left">
+        <a class="col-1"
+           data-target="#nav_settings_sidebar"
+           data-toggle="collapse"
+           href="javascript:void(0);">
+            <i class="fas fa-bars text-violet"></i>
+        </a>
+        <span class="col">
+            <i class="fas fa-clipboard-check"></i>
+            Status Updates
+        </span>
+    </h3>
+
+    <h4 class="row d-md-none mb-3 text-left">
+        <a class="col-1"
+           data-target="#nav_settings_sidebar"
+           data-toggle="collapse"
+           href="javascript:void(0);">
+            <i class="fas fa-bars text-violet"></i>
+        </a>
+        <span class="col ml-2">
+            <i class="fas fa-clipboard-check"></i>
+            Status Updates
+        </span>
+    </h4>
+
+    <div class="row">
+
+        <div class="form-group col">
+
+            <label for="txt_settings_update_firsttime"
+                   class="sr-only col-form-label">
+                System Status Email Start Time
+            </label>
+            <input type="text"
+                   id="txt_settings_update_firsttime"
+                   class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2 alert-info"
+                   pattern="^([0-1]?[0-9]|2[0-4]):([0-5][0-9])?$"
+                   placeholder="Status Email Start Time (hh:mm)">
+            <small class="form-text text-muted col-sm-8 col-md-6 col-lg-4 col-xl-2 mb-3">
+                Time (24-hr) of day to send status.
+            </small>
+
+            <label for="nbr_settings_update_interval"
+                   class="sr-only col-form-label">
+                System Status Email Interval
+            </label>
+            <input type="number"
+                   id="nbr_settings_update_interval"
+                   class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2 alert-info"
+                   placeholder="Status Email Interval">
+            <small class="form-text text-muted col-sm-8 col-md-6 col-lg-4 col-xl-2 mb-3">
+                Interval (in hours) to send status.
+            </small>
+
+            <input type="submit"
+                   role="button"
+                   class="form-control-sm col-sm-8 col-md-6 col-lg-4 col-xl-2 btn btn-info"
+                   onclick="btn_clk_settings('update');"
+                   onmousedown="event.preventDefault();"
+                   value="Submit Status Updates">
+
+        </div>
+    </div>
+</div>
