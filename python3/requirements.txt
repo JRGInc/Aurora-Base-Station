@@ -23,7 +23,7 @@ pysnmp==4.4.4
 python-dateutil==2.7.2
 pytz==2018.4
 pyusb==1.0.2
-requests==2.18.4
+requests==2.20.0
 six==1.11.0
 tendo==0.2.12
 tzlocal==1.5.1
